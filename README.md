@@ -1,2 +1,9 @@
 # Wing-Watch
-Repositorio dedicado a un Proyecto de Ornitología
+Repositorio dedicado al Proyecto de Ornitología - Bases de Datos
+
+###Integrantes:
+
+* Jose Aguilar
+* Kevin Hernández
+* Julián Méndez
+* Jasson Moya
