@@ -40,13 +40,10 @@ function main () {
         loader = new THREE.JSONLoader();
 
     renderer.setSize(container.clientWidth, container.clientHeight );
+    renderer.setClearColor( 0xffffff, 1);
     container.appendChild(renderer.domElement);
     window.addEventListener( 'resize', onWindowResize, false );
     camControl.autoRotate = true;
-
-    // var size = 1000000; 
-    // skyboxMesh = new THREE.Mesh(new THREE.BoxGeometry(size,size,size), new THREE.MeshBasicMaterial({color: 0xE6E6E6})); 
-    // scene.add(skyboxMesh); 
     
     loader.load( shapeObjectUrl, 
         function ( geometry, materials ) {
@@ -55,7 +52,9 @@ function main () {
             scene.add( mesh );
             render();
     });
+    
     camera.position.z = 5;
+
     var render = function () {
         requestAnimationFrame(render);
         renderer.render(scene, camera);
