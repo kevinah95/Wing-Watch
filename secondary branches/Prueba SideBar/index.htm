@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html hola_ext_inject="ready" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prueba SideBar</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/semantic.min.js"></script>
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="css/Style.css">
+  </head>
+  <body>
+    <div class="ui inverted red left vertical sidebar menu">
+      <a class="item">
+        Inicio
+      </a>
+      <a class="item">
+        Álbumnes de aves
+      </a>
+      <a class="item">
+        Mis aves
+      </a>
+      <a class="item">
+        Ornitólogos
+      </a>
+    </div>
+    <div class="pusher">
+      <button class="ui primary button">Aparecer</button>
+    </div>
+    <script>
+    $('.ui.sidebar').sidebar('attach events', '.ui.button', 'toggle')
+    </script>
+  </body>
+</html>
