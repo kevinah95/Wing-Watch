@@ -3,7 +3,7 @@ var models = ["bird models/eagle.json",
                 "bird models/goose.json",
                 "bird models/gull.json",
                 "bird models/hummingbird.json",
-                /*
+                
                 "bird models/cardinal1.json", //Más grande
                 "bird models/cardinal2.json", //Más grande
                 "bird models/swan.json", //Más pequeño
@@ -15,7 +15,7 @@ var models = ["bird models/eagle.json",
                 "bird models/duck.json",  //Un poco más grande
                 "bird models/crow.json",  //Más grande
                 "bird models/eagle2.json", //Más grande
-                */
+                /**/
               ];
 
 /*OK
@@ -32,7 +32,7 @@ function main () {
         model = getRandomInt(0,models.length - 1);
         print(models[model]);
         print(models.length)
-        camera = new THREE.PerspectiveCamera( 12, window.innerWidth / window.innerHeight, 1, 100 );
+        camera = new THREE.PerspectiveCamera( 12, window.innerWidth / window.innerHeight, 1, 10000000);
         camControl = new THREE.OrbitControls( camera ),
         shapeObjectUrl = models[model],
         scene = new THREE.Scene(),
@@ -42,12 +42,16 @@ function main () {
     renderer.setSize(container.clientWidth, container.clientHeight );
     container.appendChild(renderer.domElement);
     window.addEventListener( 'resize', onWindowResize, false );
-    camControl.autoRotate = true; 
+    camControl.autoRotate = true;
+
+    // var size = 1000000; 
+    // skyboxMesh = new THREE.Mesh(new THREE.BoxGeometry(size,size,size), new THREE.MeshBasicMaterial({color: 0xE6E6E6})); 
+    // scene.add(skyboxMesh); 
     
     loader.load( shapeObjectUrl, 
         function ( geometry, materials ) {
             var     
-                mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial() );
+                mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial({color: 0x000000}) );
             scene.add( mesh );
             render();
     });
