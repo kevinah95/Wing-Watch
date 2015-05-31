@@ -28,6 +28,20 @@
                 <form class="ui form registro">
                     <!-- <img class="ui small centered circular bordered image" ng-src="{{miImagen}}" ng-click="abrir()" /> -->
                     <h3 class="ui dividing header">Información del ave</h3>
+                    <!-- Infromación general -->
+                    <h4 class="ui header">Información general</h4>
+                    <div class="field">
+                        <label>Nombre Común</label>
+                        <div class="ui input">
+                            <input type="text" name="nomComun" placeholder="Nombre común">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Nombre en inglés</label>
+                        <div class="ui input">
+                            <input type="text" name="nomIngles" placeholder="Nombre en inglés">
+                        </div>
+                    </div>
                     <!-- Información Taxonómica -->
                     <h4 class="ui header">Información taxonómica  <i class="help circle icon"></i></h4>
                     <div class="three fields">
@@ -317,7 +331,7 @@
     $('.help.circle.icon').popup({
         position: 'right center',
         title: '¿Qué es la taxonomía?',
-        content: 'Es la ciencia de la clasificación de la biología para la ordenación sistemática de animales y vegetales. Aquí debe poner cómo se clasifica científicamente el ave que quiere ingresar. Si no sabe algún campo, entonces eliga Insertae Sedis.'
+        content: 'Es la ciencia de la clasificación de la biología para la ordenación sistemática de animales y vegetales. Aquí debe poner cómo se clasifica científicamente el ave que quiere ingresar. Si no sabe algún campo, entonces elija Incertae Sedis.'
     });
     $('.ui.selection.dropdown').dropdown();
     $('.ui.accordion').accordion();
@@ -336,6 +350,20 @@
                 rules: [{
                     type: 'empty',
                     prompt: 'Por favor, ingrese una zona geográfica'
+                }]
+            },
+            nomComun: {
+                identifier: 'nomComun',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Por favor, ingrese un nombre común'
+                }]
+            },
+            nomIngles: {
+                identifier: 'nomIngles',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Por favor, ingrese un nombre en inglés'
                 }]
             },
             suborden: {
