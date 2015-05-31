@@ -1,6 +1,6 @@
-var app = angular.module('WingWatchApp',['ngRoute','routeStyles']);
+var app = angular.module('WingWatchApp',['ngRoute','routeStyles','ngImgCrop']);
 
 app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/login', {templateUrl: '_wing-watch-core/componentes/login/loginView.html', controller:'loginCtrl', css: 'assets/css/login.css'});
+  $routeProvider.when('/login', {templateUrl: '_wing-watch-core/components/login-registro/login-registroView.html', controller:'login-registroCtrl', css: ['assets/css/login-registro.css','assets/css/registro.css']});
   $routeProvider.otherwise({redirectTo: '/inicio'});
 }]);

@@ -1,0 +1,84 @@
+<div>
+    <form class="ui form registro">
+        <img class="ui centered rounded bordered image" height="100" width="100" ng-src="{{miImagen}}" ng-click="abrir()" />
+        <h4 class="ui dividing header">Información Personal</h4>
+        <div class="field">
+            <label>Nombre</label>
+            <div class="three fields">
+                <div class="field">
+                    <input type="text" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="field">
+                    <input type="text" name="pApellido" placeholder="Primer Apellido">
+                </div>
+                <div class="field">
+                    <input type="text" name="sApellido" placeholder="Segundo Apellido">
+                </div>
+            </div>
+        </div>
+        <h4 class="ui dividing header">Información de la cuenta</h4>
+        <div class="two fields">
+            <div class="field">
+                <label>Correo Electrónico</label>
+                <div class="ui icon input">
+                    <input type="email" name="email" placeholder="Correo Electrónico">
+                    <i class="mail icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>Contraseña</label>
+                <div class="ui icon input">
+                    <input type="password" name="password" placeholder="Contraseña">
+                    <i class="lock icon"></i>
+                </div>
+            </div>
+        </div>
+        <h4 class="ui dividing header">Configuración</h4>
+        <h5 class="ui header">Tipo de Usuario</h5>
+        <div class="grouped inline fields">
+            <div class="field">
+                <div class="ui test radio checkbox">
+                    <input type="radio" name="tipo" checked>
+                    <label> Aficionado </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui test radio checkbox">
+                    <input type="radio" name="tipo">
+                    <label> Onitólogo </label>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="ui center aligned grid" > -->
+        <div class="ui red button" ng-click="registrarCuenta()">Crear Cuenta</div>
+        <!-- <div class="ui error message"></div> -->
+        <!--  </div> -->
+    </form>
+    <div class="ui small test modal">
+        <div class="row">
+            <div class="four wide column"></div>
+            <div class="column ten wide">
+                <div class="ui center aligned segment">
+                    <div>
+                        <label for="file" class="ui icon teal button">
+                            <i class="file icon"></i> Cargar Imagen</label>
+                        <input type="file" id="file" style="display:none">
+                    </div>
+                    <div class="cropArea">
+                        <img-crop image="myImage" area-type="square" result-image-quality="1.0" result-image="myCroppedImage"></img-crop>
+                    </div>
+                    <img class="ui small centered rounded bordered image" style="margin-top: 15px" ng-src="{{myCroppedImage}}" />
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black cancel button">
+                Cancelar
+            </div>
+            <div class="ui yellow ok right labeled icon button">
+                Guardar Cambios
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,12 +22,21 @@
         <script src="assets/vendor/three-js/CanvasRenderer.js"></script>
         <script src="assets/vendor/three-js/stats.min.js"></script>
         <script src="assets/vendor/three-js/Bird.js"></script>
+        <!-- ngImgCrop https://github.com/alexk111/ngImgCrop -->
+        <script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
+        <link rel="stylesheet" href="bower_components/ngImgCrop/compile/minified/ng-img-crop.css">
     </head>
     <body > <!-- Llama al module del archivo app.js -->
     <div ng-view></div>
     <!-- librerias de la app -->
     <script src="_wing-watch-core/app.js"></script>
+    <!-- Login-Resgitro -->
+    <script src="_wing-watch-core/components/login-registro/login-registroCtrl.js"></script>
     <!-- Login -->
-    <script src="_wing-watch-core/componentes/login/loginCtrl.js"></script>
+    <script src="_wing-watch-core/components/login-registro/login/loginCtrl.js"></script>
+    <script src="_wing-watch-core/components/login-registro/login/loginDirective.js"></script>
+    <!-- Registro -->
+    <script src="_wing-watch-core/components/login-registro/registro/registroCtrl.js"></script>
+    <script src="_wing-watch-core/components/login-registro/registro/registroDirective.js"></script>
 </body>
 </html>

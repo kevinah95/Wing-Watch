@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>IC4301 - II Proyecto</title>
+
+        <!-- Custom CSS, Bootstrap  -->
+        <link rel="stylesheet" href="css/semantic.min.css">
+        <link href="css/customStyle.css"  type="text/css" rel="stylesheet"> 
+        <link href="css/style.css"  type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+    
+
+    <a class="ui button uiside" > <p class ="iconSize"> <i class="fa fa-align-justify"></i> </p> </a>
+    <div class="ui inverted black left vertical sidebar menu">
+        <p class="item"> <hr> </p>
+        <a class="item"> <h1 class="customText">Inicio</h1> </a>
+        <a class="item"> <h1 class="customText">Todas las aves</h1> </a>
+        <a class="item"> <h1 class="customText">Mis aves</h1>  </a>
+        <a class="item"> <h1 class="customText">Ornitólogos</h1> </a>
+        <p class="item"> <hr> </p>
+        <p class="item"> <img src="img/Wing-Watch-White.png" width="250px" height ="250px"> </p>
+        <p class="item"> <hr> </p>
+        
+    </div>     
+    
+    <img class= "abs"src="img/Wing-Watch.png" width="200px" height ="200px">
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a class="ui button" data-toggle="dropdown"> <p class ="iconSize2"> <i class="fa fa-cog"></i>  </p> </b> </a>
+                
+            <ul class="dropdown-menu">
+            <li class="nav-header">Profesora</li><li class="divider"></li> 
+            <li><a href="https://www.facebook.com/adriana.alvarez.9277"> Adriana Álvarez </a>
+            
+            <li class="divider"></li><li class="nav-header">Estudiantes</li><li class="divider"></li>
+
+            <li><a href="https://www.facebook.com/jm95aguilar"> Jose Aguilar </a></li>
+            <li><a href="https://www.facebook.com/kevinah95"> Kevin Hernández </a></li>
+            <li><a href="https://www.facebook.com/menoc.sk27"> Julián Méndez </a></li>
+            <li><a href="https://www.facebook.com/jasson.moyaalvarez"> Jasson Moya </a></li>
+            </ul>
+
+        </li>
+
+    </ul>
+    
+    <div id="TJS">
+        <!-- Acá se carga el modelo -->
+    </div>
+    
+    <div class="thumbnail" id="textDiv">
+        <!-- Acá se carga el texto -->
+    </div>  
+
+    <!--Scripts-->
+    <script src="js/console.js"></script>
+
+    <script src="js/vendor/ThreeJs/three.min.js"></script>
+    <script src="js/vendor/ThreeJs/OrbitControls.js"></script>
+    <script src="js/vendor/Fonts/Book Antiqua_Regular.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/vendor/JQuery/jquery.min.js"></script>
+    <script src="js/vendor/SemanticUI/semantic.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script> $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle') </script>
+    
+
+    </body>
+</html>
