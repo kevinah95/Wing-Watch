@@ -1,20 +1,15 @@
 body {
-    color: #808080;
-    /*font-family: Monospace;*/
-    /*font-size: 13px;*/
-    /*text-align: center;*/
-    
-    background-color: #ffffff;
-    /*margin: 0px;*/
     overflow: hidden;
-    /*overflow-y: scroll;
-    overflow-x: hidden;*/
 }
 
 #info {
     position: absolute;
     top: 0px;
     width: 100%;
-    
     padding: 5px;
+    color: rgba(0,0,0,0);
+}
+
+#trans {
+    background-color: rgba(0,0,0,0.01);
 }

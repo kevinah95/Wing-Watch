@@ -1,16 +1,16 @@
 <div id="container">
     <div id="info">
         <div class="ui two column centered padded grid">
-            <div class="column">
+            <div class="column" id ="h">
                 <div class="ui top attached tabular menu">
                     <a class="active item" data-tab="first" ng-click="clear()">Ingreso</a>
                     <a class="item" data-tab="second">Registro</a>
                 </div>
-                <div class="ui bottom attached active tab  segment" data-tab="first">
+                <div class="ui bottom attached active tab  segment" data-tab="first" id ="trans">
                     <!-- Login -->
                     <login-template></login-template>
                 </div>
-                <div class="ui bottom attached tab segment" data-tab="second">
+                <div class="ui bottom attached tab segment" data-tab="second" id ="trans">
                     <!-- Registro -->
                     <registro-template></registro-template>
                 </div>
@@ -18,10 +18,9 @@
         </div>
     </div>
 </div>
+
 <script>
-/**
- * Funciones dedicadas a canvas_geometry_birds - http://threejs.org/examples/canvas_geometry_birds.html
- */
+/* Funciones dedicadas a canvas_geometry_birds - http://threejs.org/examples/canvas_geometry_birds.html */
 var Boid = function() {
     var vector = new THREE.Vector3(),
         _acceleration, _width = 500,
@@ -72,10 +71,7 @@ var Boid = function() {
             vector.multiplyScalar(5);
             _acceleration.add(vector);
         }
-        /* else {
-                                this.checkBounds();
-                            }
-                            */
+
         if (Math.random() > 0.5) {
             this.flock(boids);
         }
@@ -209,7 +205,7 @@ function init() {
     scene = new THREE.Scene();
     birds = [];
     boids = [];
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 200; i++) {
         boid = boids[i] = new Boid();
         boid.position.x = Math.random() * 400 - 200;
         boid.position.y = Math.random() * 400 - 200;
@@ -248,14 +244,14 @@ function onWindowResize() {
 }
 
 function onDocumentMouseMove(event) {
-        var vector = new THREE.Vector3(event.clientX - SCREEN_WIDTH_HALF, -event.clientY + SCREEN_HEIGHT_HALF, 0);
-        for (var i = 0, il = boids.length; i < il; i++) {
-            boid = boids[i];
-            vector.z = boid.position.z;
-            boid.repulse(vector);
-        }
+    var vector = new THREE.Vector3(event.clientX - SCREEN_WIDTH_HALF, -event.clientY + SCREEN_HEIGHT_HALF, 0);
+    for (var i = 0, il = boids.length; i < il; i++) {
+        boid = boids[i];
+        vector.z = boid.position.z;
+        boid.repulse(vector);
     }
-    //
+}
+
 function animate() {
     requestAnimationFrame(animate);
     render();
