@@ -370,6 +370,24 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`usuario` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`fotos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`fotos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre_foto` VARCHAR(255) NULL,
+  `url` LONGTEXT NULL,
+  `pajaro_x_persona_ID` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_fotos_pajaro_x_persona1_idx` (`pajaro_x_persona_ID` ASC),
+  CONSTRAINT `fk_fotos_pajaro_x_persona1`
+    FOREIGN KEY (`pajaro_x_persona_ID`)
+    REFERENCES `wingwatch`.`pajaro_x_persona` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 USE `wingwatch` ;
 
 -- -----------------------------------------------------
