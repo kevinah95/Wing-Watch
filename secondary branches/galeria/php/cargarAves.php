@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "SELECT * FROM catalogo_tipo_usuario";
+$query = "SELECT * FROM pajaro_x_persona";
 $result = $mysqli->query($query);
 
 while($row = $result->fetch_array())
