@@ -33,5 +33,4 @@ app.controller('loginCtrl', function($scope, $http) {
                 on: 'blur',
                 transition: 'fade down'
             });
-        //
     });

@@ -8,27 +8,32 @@
         <title>Wing-Watch</title>
         <!-- Semantic-UI -->
         <link rel="stylesheet" type="text/css" href="bower_components/semantic-ui/dist/semantic.min.css">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!--JQuery -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>       
-        <!-- CSS -->
-        
+        <!--Bootstrap -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- AngularJS -->
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="bower_components/angular-route-styles/route-styles.js"></script>
         <!-- Three.js -->
-        <script src="assets/vendor/three-js/three.min.js"></script>
-        <script src="assets/vendor/three-js/Projector.js"></script>
-        <script src="assets/vendor/three-js/CanvasRenderer.js"></script>
-        <script src="assets/vendor/three-js/stats.min.js"></script>
-        <script src="assets/vendor/three-js/Bird.js"></script>
+        <script src="assets/vendor/ThreeJS/three.min.js"></script>
+        <script src="assets/vendor/ThreeJS/Projector.js"></script>
+        <script src="assets/vendor/ThreeJS/CanvasRenderer.js"></script>
+        <script src="assets/vendor/ThreeJS/stats.min.js"></script>
+        <script src="assets/vendor/ThreeJS/Bird.js"></script>
+        <script src="assets/vendor/ThreeJS/OrbitControls.js"></script>
         <!-- ngImgCrop https://github.com/alexk111/ngImgCrop -->
         <script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
         <link rel="stylesheet" href="bower_components/ngImgCrop/compile/minified/ng-img-crop.css">
+
     </head>
     <body > <!-- Llama al module del archivo app.js -->
     <div ng-view></div>
-    <!-- librerias de la app -->
+    <!-- Librerías -->
     <script src="_wing-watch-core/app.js"></script>
     <!-- Login-Resgitro -->
     <script src="_wing-watch-core/components/login-registro/login-registroCtrl.js"></script>
@@ -38,5 +43,9 @@
     <!-- Registro -->
     <script src="_wing-watch-core/components/login-registro/registro/registroCtrl.js"></script>
     <script src="_wing-watch-core/components/login-registro/registro/registroDirective.js"></script>
+    <!-- Home -->
+    <script src="_wing-watch-core/components/home/homeCtrl.js"></script>
+    <script src="_wing-watch-core/components/home/homeDirective.js"></script>
+    
 </body>
 </html>
