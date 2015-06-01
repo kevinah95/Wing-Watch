@@ -1,4 +1,4 @@
-<div ng-init="loadModel()">
+<div class="homeDiv">
     <div class="sidebarMenu">
         <div class="ui button uiside" > <p class ="iconSize"> <i class="fa fa-align-justify"></i> </p> </div>
         <div class="ui inverted black left vertical sidebar menu">
@@ -10,14 +10,13 @@
             <p class="item"> <hr> </p>
             <p class="item"> <img src="assets/img/Wing-Watch-White.png" width="250px" height ="250px"> </p>
             <p class="item"> <hr> </p>
-            
         </div>     
     </div>
     
     <img class= "abs"src="assets/img/Wing-Watch.png" width="200px" height ="200px">
 
     <div class="config">
-        <div class="ui floating upward vertical dropdown button">
+        <div class="ui floating upward vertical dropdown button configIcon">
             <div class ="iconSize2"> <i class="fa fa-cog"></i> </div>
             <div class="ui left menu">
                 <div class="header">Profesora</div>
@@ -31,7 +30,15 @@
         </div>
     </div>
 
+    <div class="ui icon button randomCarrousel" ng-click="transit()">
+        <i class="fa fa-random"> </i>
+    </div>
+
+    <div class="ui icon button loginIcon" ng-click="login()">
+        <i class="fa fa-key"> </i>
+    </div>
+    
     <div id="TJS">
         <!-- Acá se carga el modelo -->
-    </div>
+    </div>    
 </div>

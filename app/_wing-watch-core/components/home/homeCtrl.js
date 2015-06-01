@@ -1,12 +1,26 @@
-app.controller('homeCtrl', function($scope, $http) {
-    $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle');
-    $('.dropdown').dropdown({transition: 'drop'});
-
+app.controller('homeCtrl', function($scope, $http, $location) {
+    
+    var models = [  "assets/models/eagle.json", "assets/models/condor.json", "assets/models/goose.json", 
+            "assets/models/gull.json", "assets/models/hummingbird.json", "assets/models/cardinal1.json", 
+            "assets/models/cardinal2.json", "assets/models/swan.json","assets/models/falcon.json", 
+            "assets/models/bluejay.json", "assets/models/dove.json",  "assets/models/chickadee.json", 
+            "assets/models/duck.json",  "assets/models/crow.json",  "assets/models/eagle2.json",
+            /*"assets/models/penguin.json"*/
+        ];
+            
     window.onload = function(){
+        $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle');
+        $('.dropdown').dropdown({transition: 'drop'});
+
+        loadThreeJSModel();
+    }
+
+    function loadThreeJSModel() {
+        document.getElementById("TJS").innerHTML = "";
         var container = document.getElementById("TJS");
         var 
             model = getRandomInt(0,models.length - 1);
-            camera = new THREE.PerspectiveCamera( 12, window.innerWidth / window.innerHeight, 1, 10000000);
+            camera = new THREE.PerspectiveCamera( 12, window.innerWidth / window.innerHeight, 1, 10000000),
             camControl = new THREE.OrbitControls( camera ),
             shapeObjectUrl = models[model],
             scene = new THREE.Scene(),
@@ -22,6 +36,12 @@ app.controller('homeCtrl', function($scope, $http) {
         loader.load( shapeObjectUrl, 
             function ( geometry, materials ) {
                 var mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial({color: 0x000000}) );
+                var bb = new THREE.Box3()
+                bb.setFromObject(mesh);
+                bb.center(camControl.target);
+
+                camera.position.z = 8 * bb.size().z;
+                camera.position.y = 1;
                 scene.add( mesh );
                 render();
         });
@@ -38,32 +58,27 @@ app.controller('homeCtrl', function($scope, $http) {
             camControl.update();
         }
 
+
+        function getRandomInt(pMin, pMax) {
+            return Math.floor(Math.random() * (pMax - pMin + 1)) + pMin;
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            render();
+        }
     }
 
-    function getRandomInt(pMin, pMax) {
-        return Math.floor(Math.random() * (pMax - pMin + 1)) + pMin;
-    }
-
-    function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        render();
-    }
     
-    var models = [  "assets/models/eagle.json", "assets/models/condor.json", "assets/models/goose.json", 
-            "assets/models/gull.json", "assets/models/hummingbird.json", 
-            /*"assets/models/cardinal1.json", //Más grande
-            "assets/models/cardinal2.json", //Más grande
-            "assets/models/swan.json", //Más pequeño
-            "assets/models/falcon.json", //Más grande
-            "assets/models/bluejay.json", //Más grande
-            "assets/models/dove.json",  //Más grande
-            "assets/models/chickadee.json", //Más grande
-            "assets/models/penguin.json", //Más pequeño
-            "assets/models/duck.json",  //Un poco más grande
-            "assets/models/crow.json",  //Más grande
-            "assets/models/eagle2.json", //Más grande
-            /**/
-        ];
+    $scope.transit = function(){
+        $('.homeDiv').transition('vertical flip');
+        loadThreeJSModel();
+        $('.homeDiv').transition('horizontal flip');
+    }
+
+    $scope.login = function(){
+        $location.path('/login');
+    }
 });
