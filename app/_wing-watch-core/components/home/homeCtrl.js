@@ -80,5 +80,10 @@ app.controller('homeCtrl', function($scope, $http, $location) {
 
     $scope.login = function(){
         $location.path('/login');
+        history.go(0);
+    }
+
+    window.onhashchange = function(){
+        history.go(0);
     }
 });
