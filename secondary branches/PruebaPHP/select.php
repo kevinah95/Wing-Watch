@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "WingWatch", "WingWatch", "WingWatch");
+$mysqli = new mysqli("localhost", "WingWatch", "WingWatch", "wingwatch");
 
 /* check connection */
 if (mysqli_connect_errno()) {
@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "SELECT * FROM catalogo_tipo_usuario";
+$query = "SELECT * FROM usuario";
 $result = $mysqli->query($query);
 
 while($row = $result->fetch_array())
