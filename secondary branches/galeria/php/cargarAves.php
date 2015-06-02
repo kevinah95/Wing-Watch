@@ -10,7 +10,7 @@
 
     // query the database 
 
-    $query = "SELECT * FROM usuario WHERE NICKNAME = 'Huevomon'";
+    $query = "SELECT * FROM usuario";
     $result = $mysqli->query($query);
     // fetch the result / convert resulte in to array 
     $outp = "[";
@@ -20,7 +20,7 @@
 		if ($outp != "[") {$outp .= ",";}
         $outp .= '{"NICKNAME":"'  . $row["NICKNAME"] . '",';
         $outp .= '"PASSWORD":"'   . $row["PASSWORD"]        . '",';
-        $outp .= '"CEDULA:"'   . $row["CEDULA"]        . '",';
+        $outp .= '"CEDULA":"'   . $row["CEDULA"]        . '",';
         $outp .= '"ES_ADMIN":"'   . $row["ES_ADMIN"] . '"}';     
        // $rows[] = $row;
 	}
