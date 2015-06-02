@@ -1,4 +1,4 @@
-<div>
+<div class="scroll">
     <form class="ui form registro">
         <img class="ui centered rounded bordered image" height="100" width="100" ng-src="{{miImagen}}" ng-click="abrir()" />
         <h4 class="ui dividing header">Información Personal</h4>
@@ -16,6 +16,25 @@
                 </div>
             </div>
         </div>
+        <h4 class="ui dividing header">Información personal</h4>
+		<div class="field">
+			<label>Apodo</label>
+			<div class="ui icon input">
+				<input type="text" name="apodo" placeholder="Apodo">
+				<i class="smile icon"></i>
+			</div>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label>Teléfono</label>
+				<input type="tel" name="telefono" placeholder="Teléfono">
+			</div>
+			<div class="field">
+				<label>Cédula</label>
+				<input type="text" name="cedula" placeholder="Cédula">
+			</div>
+		</div>
+
         <h4 class="ui dividing header">Información de la cuenta</h4>
         <div class="two fields">
             <div class="field">

@@ -94,6 +94,30 @@ app.controller('registroCtrl', function($scope, $http) {
                     type: 'checked',
                     prompt: 'Seleccione el tipo de usuario'
                 }]
+            },
+
+            apodo: {
+                identifier: 'apodo',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Ingrese un apodo para su usuario'
+                }]
+            },
+
+            telefono: {
+                identifier: 'telefono',
+                rules: [{
+                    type: 'integer',
+                    prompt: 'Ingrese un número válido de teléfono. Debe incluir solo números'
+                }]
+            },
+
+            cedula: {
+                identifier: 'cedula',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Ingrese una cédula'
+                }]
             }
 
         }, {
