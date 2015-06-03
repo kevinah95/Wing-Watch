@@ -8,8 +8,7 @@
 <!-- CSS
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-responsive.css">
+<link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.min.css">
 <link rel="stylesheet" href="css/prettyPhoto.css" />
 <link rel="stylesheet" href="css/flexslider.css" />
 <link rel="stylesheet" href="css/custom-styles.css">
@@ -26,7 +25,7 @@
 <!-- JS
 ================================================== -->
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
 <script src="angular/angular.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.flexslider.js"></script>
@@ -66,32 +65,25 @@ $(document).ready(function () {
 
 </head>
 
-<body class="home" >
+<body class="home">
     <!-- Color Bars (above header)-->
 	<div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
     
-    <div class="container" ng-controller="galleryCtrl">
-    
-      <div class="row header"><!-- Begin Header -->
-      
+    <div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
+      <div class="ui grid"><!-- Begin Header -->
         <!-- Logo
         ================================================== -->
-        <div class="span5 logo">
+        <div class="one wide column"></div>
+        <div class="six wide column logo">
         	<a href="index.htm"><img src="img/Wing-Watch.png" alt="" /></a>
             <h5>Just at the Right Moment...</h5>
         </div>
-        
-        <!-- Main Navigation
-        ================================================== -->
-        
-      </div><!-- End Header -->
-     
-    <div class="row headline"><!-- Begin Headline -->
-    
+    </div><!-- End Header -->
+    <div class="ui grid">
      	<!-- Slider Carousel
         ================================================== -->
-        <div class="span6">
+        <div class="eight wide column">
             <div class="flexslider">
               <ul class="slides">
                 <li><a href="gallery-single.htm"><img src="http://picszu.com/wp-content/uploads/2013/11/Big-Eagle-HD-Wallpaper-of-birds.jpg" alt="slider" /></a></li>
@@ -103,182 +95,112 @@ $(document).ready(function () {
         
         <!-- Headline Text
         ================================================== -->
-        <div class="span6">
-        	<h3>Bienvenido a la galería de aves</h3>
-            <p class="lead">En esta sección, usted podrá encontrar las aves fotografiadas por los aficionados</p>
-            <p>Si usted es un ornitólogo puede contribuir con las capturas de los aficionados clasificando las aves avistadas.</p> 
+        <div class="eight wide column">
+        	<h2>Bienvenido a la galería de aves</h2>
+            <h4 class="lead">En esta sección, usted podrá encontrar las aves fotografiadas por los aficionados</h4>
+            <h5>Si usted es un ornitólogo puede contribuir con las capturas de los aficionados clasificando las aves avistadas.</h5> 
         </div>
     </div><!-- End Headline -->
-    
-    <div class="row gallery-row"><!-- Begin Gallery Row --> 
-      
-    	<div class="span12">
-    	
-        <!-- Gallery Thumbnails
-        ================================================== -->
 
-            <div class="row clearfix no-margin" ng-init="inicializar()">
-            <ul class="gallery-post-grid holder">
-
-                    <!-- Gallery Item 1 -->
-                    <li  class="span3 gallery-item" data-id="id-1" data-type="illustration">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">{{posts[0].NICKNAME}}</a>For an international ad campaign.</span>
-                    </li>
-
-                    <!-- Gallery Item 2 -->
-                    <li class="span3 gallery-item" data-id="id-2" data-type="illustration">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">3 Color Poster Design</a>For a regional festival event.</span>
-                    </li>
-
-                    <!-- Gallery Item 3 -->
-                    <li class="span3 gallery-item" data-id="id-3" data-type="web">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Ink Pen Illustration</a>Created for a best selling children's book.</span>
-                    </li>
-
-                    <!-- Gallery Item 4 -->
-                    <li class="span3 gallery-item" data-id="id-4" data-type="video">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Custom Illustration</a>For an international add campaign.</span>
-                    </li>
-
-                    <!-- Gallery Item 5 -->
-                    <li class="span3 gallery-item" data-id="id-5" data-type="web illustration">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Icon Design</a>Classic retro style illustration.</span>
-                    </li>
-
-                    <!-- Gallery Item 6 -->
-                    <li class="span3 gallery-item" data-id="id-6" data-type="illustration design">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Animation Cell</a>Creative storyboard illustration</span>
-                    </li>
-
-                    <!-- Gallery Item 7 -->
-                    <li class="span3 gallery-item" data-id="id-7" data-type="design">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Poster Ad Campaign</a>Regional ad for a local company.</span>
-                    </li>
-
-                    <!-- Gallery Item 8 -->
-                    <li class="span3 gallery-item" data-id="id-8" data-type="web video">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Magazine Ad</a>For an international add campaign.</span>
-                    </li>
-
-                    <!-- Gallery Item 9 -->
-                    <li class="span3 gallery-item" data-id="id-9" data-type="design">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Character Designs</a>For a feature film.</span>
-                    </li>
-
-                    <!-- Gallery Item 10 -->
-                    <li class="span3 gallery-item" data-id="id-10" data-type="web design">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Poster and Ad Design</a>For an international add campaign.</span>
-                    </li>
-
-                    <!-- Gallery Item 11 -->
-                    <li class="span3 gallery-item" data-id="id-11" data-type="illustration">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Website and Animation</a>For a local business.</span>
-                    </li>
-
-                    <!-- Gallery Item 12 -->
-                    <li class="span3 gallery-item" data-id="id-12" data-type="illustration video">
-                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg " alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Branding Design</a>For an international add campaign.</span>
-                    </li>
-                </ul>
+    <div class="ui grid" ng-init="inicializar()">
+            <div class="four wide column">
+                <div class="ui card">
+                  <a href="gallery-single.htm" class="image">
+                    <img src="http://s3.amazonaws.com/readers/scienceray/2008/07/27/238861_14.jpg">
+                  </a>
+                  <div class="content">
+                    <a class="header">{{posts[0].NICKNAME}}</a>
+                    <div class="meta">
+                      <span class="date">Joined in 2014</span>
+                    </div>
+                    <div class="description">
+                      Aquí va la descripción del ave
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="checkmark box icon"></i>
+                      Checkeado
+                    </a>
+                  </div>
                 </div>
             </div>
- 
-    </div><!-- End Gallery Row -->
-    
+            <div class="four wide column">
+                <div class="ui card">
+                  <a href="gallery-single.htm" class="image">
+                    <img src="http://s3.amazonaws.com/readers/scienceray/2008/07/27/238861_14.jpg">
+                  </a>
+                  <div class="content">
+                    <a class="header">{{posts[0].NICKNAME}}</a>
+                    <div class="meta">
+                      <span class="date">Joined in 2014</span>
+                    </div>
+                    <div class="description">
+                      Aquí va la descripción del ave
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="checkmark box icon"></i>
+                      Checkeado
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui card">
+                  <a href="gallery-single.htm" class="image">
+                    <img src="http://s3.amazonaws.com/readers/scienceray/2008/07/27/238861_14.jpg">
+                  </a>
+                  <div class="content">
+                    <a class="header">{{posts[0].NICKNAME}}</a>
+                    <div class="meta">
+                      <span class="date">Joined in 2014</span>
+                    </div>
+                    <div class="description">
+                      Aquí va la descripción del ave
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="checkmark box icon"></i>
+                      Checkeado
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui card">
+                  <a href="gallery-single.htm" class="image">
+                    <img src="http://s3.amazonaws.com/readers/scienceray/2008/07/27/238861_14.jpg">
+                  </a>
+                  <div class="content">
+                    <a class="header">{{posts[0].NICKNAME}}</a>
+                    <div class="meta">
+                      <span class="date">Joined in 2014</span>
+                    </div>
+                    <div class="description">
+                      Aquí va la descripción del ave
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="checkmark box icon"></i>
+                      Checkeado
+                    </a>
+                  </div>
+                </div>
+            </div>
+    </div>   
 
     
     </div> <!-- End Container -->
 
     <!-- Footer Area
         ================================================== -->
-
-	<div class="footer-container"><!-- Begin Footer -->
-    	<div class="container">
-        	<div class="row footer-row">
+    <div class="footer-container"><!-- Begin Footer -->
+        <div class="container">
+            <div class="row footer-row">
                 <div class="span3 footer-col">
                     <ul class="social-icons">
                         <li><a href="#" class="social-icon facebook"></a></li>
@@ -293,14 +215,14 @@ $(document).ready(function () {
             <div class="row"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
                     <div class="row no-margin">
-                        <div class="span6"><span class="left">Copyright 2012 Piccolo Theme. All rights reserved.</span></div>
+                        <div class="span6"><span class="left"></span></div>
                     </div>
                 </div>
             </div><!-- End Sub Footer -->
 
         </div>
     </div><!-- End Footer --> 
-    
+
     <!-- Scroll to Top -->  
     <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
     

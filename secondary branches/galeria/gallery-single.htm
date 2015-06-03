@@ -8,8 +8,7 @@
 <!-- CSS
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-responsive.css">
+<link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.min.css">
 <link rel="stylesheet" href="css/prettyPhoto.css" />
 <link rel="stylesheet" href="css/custom-styles.css">
 
@@ -25,71 +24,57 @@
 <!-- JS
 ================================================== -->
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
-<script src="js/bootstrap.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.quicksand.js"></script>
 <script src="js/jquery.custom.js"></script>
 
 </head>
 
-<body>
-	<div class="color-bar-1"></div>
+<body class="home">
+    <!-- Color Bars (above header)-->
+    <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
     
-    <div class="container main-container">
-    
-      <div class="row header"><!-- Begin Header -->
-      
+    <div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
+      <div class="ui grid"><!-- Begin Header -->
         <!-- Logo
         ================================================== -->
-        <div class="span5 logo">
+        <div class="one wide column"></div>
+        <div class="six wide column logo">
             <a href="index.htm"><img src="img/Wing-Watch.png" alt="" /></a>
-            <h5>Just at the Right Moment</h5>
+            <h5>Just at the Right Moment...</h5>
         </div>
-    
-        
-
-      </div><!-- End Header -->
+    </div><!-- End Header -->
      
     <!-- Page Content
     ================================================== --> 
-    <div class="row">
-
-        <!-- Gallery Items
-        ================================================== --> 
-        <div class="span12 gallery-single">
-
-            <div class="row">
-                <div class="span6">
-                    <img src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg" class="align-left thumbnail" alt="image">
-                </div>
-                <div class="span6">
-                    <h2>ESPECIE DE AVE</h2>
-                    <p class="lead">Descripción general brindada por el aficionado que capturó la fotografía</p>
-                    <ul class="project-info">
-                        <li><h6>Nombre Común:</h6> Nombre</li>
-                        <li><h6>Nombre en Inglés:</h6> Nombre</li>
-                        <li><h6>Nombre Científico:</h6> Nombre</li>
-                        <li><h6>Orden:</h6> Nombre + Descripción</li>
-                        <li><h6>Suborden:</h6> Nombre + Descripción</li>
-                        <li><h6>Familia:</h6> Nombre + Descripción</li>
-                        <li><h6>Género:</h6> Nombre + Descripción</li>
-                        <li><h6>Tipo de Pico:</h6> Descripción</li>
-                        <li><h6>Cantidad de Huevos:</h6> Descripción</li>
-                        <li><h6>Zona de Vida:</h6> Descripción</li>
-                        <li><h6>Color:</h6> Descripción</li>
-                    </ul>
-
-                    <button class="btn btn-inverse pull-left" type="button">Editar Información</button>
-                    <a href="index.htm" class="pull-right"><i class="icon-arrow-left"></i>Regresar al Álbum</a>
-                </div>
-            </div>
-
-        </div><!-- End gallery-single-->
-
-    </div><!-- End container row -->
-    
+    <div class="ui grid">
+        <div class="two column row">
+          <div class="column">
+              <img class="ui image" src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg">
+          </div>
+          <div class="column">
+            <h2>ESPECIE DE AVE</h2>
+            <p class="lead">Descripción general brindada por el aficionado que capturó la fotografía</p>
+            <ul class="project-info">
+                <li><h4>Nombre Común:</h4> Nombre</li>
+                <li><h4>Nombre en Inglés:</h4> Nombre</li>
+                <li><h4>Nombre Científico:</h4> Nombre</li>
+                <li><h4>Orden:</h4> Nombre + Descripción</li>
+                <li><h4>Suborden:</h4> Nombre + Descripción</li>
+                <li><h4>Familia:</h4> Nombre + Descripción</li>
+                <li><h4>Género:</h4> Nombre + Descripción</li>
+                <li><h4>Tipo de Pico:</h4> Descripción</li>
+                <li><h4>Cantidad de Huevos:</h4> Descripción</li>
+                <li><h4>Zona de Vida:</h4> Descripción</li>
+                <li><h4>Color:</h4> Descripción</li>
+            </ul>
+            <a href="#" class="ui teal button">Editar Información</a>
+            <a href="index.htm" class="ui red button">Regresar</a>
+          </div>
+        </div>    
     </div> <!-- End Container -->
 
     <!-- Footer Area
@@ -111,7 +96,7 @@
             <div class="row"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
                     <div class="row no-margin">
-                        <div class="span6"><span class="left">Copyright 2012 Piccolo Theme. All rights reserved.</span></div>
+                        <div class="span6"><span class="left"></span></div>
                     </div>
                 </div>
             </div><!-- End Sub Footer -->
