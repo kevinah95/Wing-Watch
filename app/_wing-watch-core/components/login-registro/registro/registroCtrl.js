@@ -43,7 +43,21 @@ app.controller('registroCtrl', function($scope, $http) {
         var $form = $('.form.registro'),
             allFields = $form.form('get values');
 
-        $form.form('validate form'); //verificar formulario validado
+        allFields.foto = $scope.miImagen;
+        var $validateResult = $form.form('validate form'); //verificar formulario validado
+        if($validateResult) {
+            var $dataBaseinsert = $http.post('_wing-watch-core/components/login-registro/registro/insertUsers.php',allFields);
+            $dataBaseinsert.then(function(message){
+                var msgFinal = message.data;
+                if(msgFinal == "registrado") {
+                    swal("Su registro ha sido exitoso","Felicidades, ahora forma parte de Wing Watch","success");
+                    history.go(0);
+                }
+                else {
+                    swal("Ha ocurrido un error en su registro", "Por favor, inténtelo de nuevo", "error");
+                }
+            })
+        }
     };
 
     $('.menu .item').tab();

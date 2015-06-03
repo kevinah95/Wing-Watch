@@ -1,4 +1,5 @@
-CREATE DEFINER=`WingWatch`@`localhost` PROCEDURE `insertar_usuario`(IN `NICKNAME` TINYTEXT, IN `PASSWORD` TINYTEXT, IN `CEDULA` INT, IN `ES_ADMIN` INT, IN `CORREO` TINYTEXT, IN `TELEFONO` INT, IN `NOMBRE` TINYTEXT, IN `P_APELLIDO` TINYTEXT, IN `S_APELLIDO` TINYTEXT, IN `TIPO` INT)
+DELIMITER //
+CREATE DEFINER=`WingWatch`@`localhost` PROCEDURE `insertar_usuario`(IN `NICKNAME` TINYTEXT, IN `PASSWORD` TINYTEXT, IN `CEDULA` INT, IN `ES_ADMIN` INT, IN `FOTO_PERFIL` MEDIUMTEXT, IN `CORREO` TINYTEXT, IN `TELEFONO` INT, IN `NOMBRE` TINYTEXT, IN `P_APELLIDO` TINYTEXT, IN `S_APELLIDO` TINYTEXT, IN `TIPO` INT)
 	LANGUAGE SQL
 	NOT DETERMINISTIC
 	CONTAINS SQL
@@ -12,6 +13,6 @@ INSERT INTO wingwatch.persona (persona.NOMBRE,persona.PRIMER_APELLIDO,persona.SE
 SET @last_id = LAST_INSERT_ID(); 
 INSERT INTO wingwatch.telefono (telefono.TELEFONO,telefono.persona_ID) VALUES (`TELEFONO`,@last_id);
 INSERT INTO wingwatch.correo (correo.CORREO,correo.persona_ID) VALUES (`CORREO`,@last_id);
-INSERT INTO wingwatch.usuario (usuario.NICKNAME,usuario.PASSWORD,usuario.CEDULA,usuario.ES_ADMIN,usuario.tipo_usuario_ID,usuario.persona_ID) VALUES (`NICKNAME`,`PASSWORD`,`CEDULA`,`ES_ADMIN`,`TIPO`,@last_id);
+INSERT INTO wingwatch.usuario (usuario.NICKNAME,usuario.PASSWORD,usuario.CEDULA,usuario.ES_ADMIN,usuario.FOTO_PERFIL,usuario.tipo_usuario_ID,usuario.persona_ID) VALUES (`NICKNAME`,`PASSWORD`,`CEDULA`,`ES_ADMIN`,`FOTO_PERFIL`,`TIPO`,@last_id);
 COMMIT;
-END
+END //
