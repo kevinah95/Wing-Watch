@@ -16,6 +16,11 @@ app.controller('registroCtrl', function($scope, $http) {
     };
     angular.element(document.querySelector('#file')).on('change', handleFileSelect);
 
+    function encrypt(pString){
+        var hash = CryptoJS.MD5(pString).toString();
+        return hash;
+    }
+
     $scope.upload = function() {
         $http({
             method: 'POST',
@@ -44,14 +49,16 @@ app.controller('registroCtrl', function($scope, $http) {
             allFields = $form.form('get values');
 
         allFields.foto = $scope.miImagen;
+        allFields.hashpass = allFields.email + allFields.password;
+        allFields.hashpass = encrypt(allFields.hashpass);
+        
         var $validateResult = $form.form('validate form'); //verificar formulario validado
         if($validateResult) {
             var $dataBaseinsert = $http.post('_wing-watch-core/components/login-registro/registro/insertUsers.php',allFields);
             $dataBaseinsert.then(function(message){
                 var msgFinal = message.data;
                 if(msgFinal == "registrado") {
-                    swal("Su registro ha sido exitoso","Felicidades, ahora forma parte de Wing Watch","success");
-                    history.go(0);
+                    swal({title: "Su registro ha sido exitoso", text: "Felicidades, ahora forma parte de Wing Watch", type:"success"}, function(){history.go(0);});
                 }
                 else {
                     swal("Ha ocurrido un error en su registro", "Por favor, inténtelo de nuevo", "error");

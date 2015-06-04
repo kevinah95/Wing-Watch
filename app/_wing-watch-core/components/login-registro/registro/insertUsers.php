@@ -10,12 +10,13 @@
 	    exit();
 	} 
 
-    $stmt = $mysqli->prepare("CALL insertar_usuario(?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt = $mysqli->prepare("CALL insertar_usuario(?,?,?,?,?,?,?,?,?,?,?,?)");
 
-    $stmt->bind_param('ssiississsi', $apodo, $password, $cedula, $admin, $foto, $correo, $telefono, $nombre, $pApellido, $sApellido,
+    $stmt->bind_param('sssiississsi', $apodo, $hashpass, $password, $cedula, $admin, $foto, $correo, $telefono, $nombre, $pApellido, $sApellido,
                       $tipo);
     
     $apodo = $newUser->apodo;
+    $hashpass = $newUser->hashpass;
     $password = $newUser->password;
     $cedula = $newUser->cedula;
     $admin = 0;
