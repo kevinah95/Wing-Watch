@@ -23,7 +23,7 @@
     $foto = $newUser->foto;
     $correo = $newUser->email;
     $telefono = $newUser->telefono;
-    $nombre = $newUser->cedula;
+    $nombre = $newUser->nombre;
     $pApellido = $newUser->pApellido;
     $sApellido = $newUser->sApellido;
     $tipo = $newUser->tipo == 'aficionado' ? 1 : 2;
