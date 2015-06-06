@@ -270,25 +270,11 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`pajaro_x_persona` (
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
   `FECHA_CREACION` DATE NOT NULL,
   `FECHA_MODIFICACION` DATE NOT NULL,
-  `catalogo_color_ID` INT NOT NULL,
-  `catalogo_zona_vida_ID` INT NOT NULL,
   `persona_ID` INT NOT NULL,
   `catalogo_especie_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `fk_pajaro_x_persona_catalogo_color1_idx` (`catalogo_color_ID` ASC),
-  INDEX `fk_pajaro_x_persona_catalogo_zona_vida1_idx` (`catalogo_zona_vida_ID` ASC),
   INDEX `fk_pajaro_x_persona_persona1_idx` (`persona_ID` ASC),
   INDEX `fk_pajaro_x_persona_catalogo_especie1_idx` (`catalogo_especie_ID` ASC),
-  CONSTRAINT `fk_pajaro_x_persona_catalogo_color1`
-    FOREIGN KEY (`catalogo_color_ID`)
-    REFERENCES `wingwatch`.`catalogo_color` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pajaro_x_persona_catalogo_zona_vida1`
-    FOREIGN KEY (`catalogo_zona_vida_ID`)
-    REFERENCES `wingwatch`.`catalogo_zona_vida` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_pajaro_x_persona_persona1`
     FOREIGN KEY (`persona_ID`)
     REFERENCES `wingwatch`.`persona` (`ID`)
@@ -362,7 +348,6 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`usuario` (
   INDEX `fk_usuario_persona1_idx` (`persona_ID` ASC),
   UNIQUE INDEX `NICKNAME_UNIQUE` (`NICKNAME` ASC),
   UNIQUE INDEX `CEDULA_UNIQUE` (`CEDULA` ASC),
-  UNIQUE INDEX `HASH_UNIQUE` (`HASH` ASC),
   CONSTRAINT `fk_usuario_tipo_usuario1`
     FOREIGN KEY (`tipo_usuario_ID`)
     REFERENCES `wingwatch`.`tipo_usuario` (`ID`)
@@ -393,6 +378,59 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`fotos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`colores_x_pajaro`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`colores_x_pajaro` (
+  `pajaro_x_persona_ID` INT NOT NULL,
+  `catalogo_color_ID` INT NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`pajaro_x_persona_ID`, `catalogo_color_ID`),
+  INDEX `fk_colores_x_pajaro_pajaro_x_persona1_idx` (`pajaro_x_persona_ID` ASC),
+  INDEX `fk_colores_x_pajaro_catalogo_color1_idx` (`catalogo_color_ID` ASC),
+  CONSTRAINT `fk_colores_x_pajaro_pajaro_x_persona1`
+    FOREIGN KEY (`pajaro_x_persona_ID`)
+    REFERENCES `wingwatch`.`pajaro_x_persona` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_colores_x_pajaro_catalogo_color1`
+    FOREIGN KEY (`catalogo_color_ID`)
+    REFERENCES `wingwatch`.`catalogo_color` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`zonas_x_pajaro`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`zonas_x_pajaro` (
+  `catalogo_zona_vida_ID` INT NOT NULL,
+  `pajaro_x_persona_ID` INT NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`catalogo_zona_vida_ID`, `pajaro_x_persona_ID`),
+  INDEX `fk_catalogo_zona_vida_has_pajaro_x_persona_pajaro_x_persona_idx` (`pajaro_x_persona_ID` ASC),
+  INDEX `fk_catalogo_zona_vida_has_pajaro_x_persona_catalogo_zona_vi_idx` (`catalogo_zona_vida_ID` ASC),
+  CONSTRAINT `fk_catalogo_zona_vida_has_pajaro_x_persona_catalogo_zona_vida1`
+    FOREIGN KEY (`catalogo_zona_vida_ID`)
+    REFERENCES `wingwatch`.`catalogo_zona_vida` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_catalogo_zona_vida_has_pajaro_x_persona_pajaro_x_persona1`
+    FOREIGN KEY (`pajaro_x_persona_ID`)
+    REFERENCES `wingwatch`.`pajaro_x_persona` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 USE `wingwatch` ;
 
