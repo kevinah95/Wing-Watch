@@ -1,0 +1,254 @@
+<title>Registrar Álbum</title>
+<div class="ui two column centered padded grid">
+    <div class="column">
+        <div class="ui bottom attached segment">
+            <!-- Registro -->
+            <h1 class="ui header center aligned">
+                <img src="assets/img/bird.png">
+                <div class="content">
+                    Nuevo álbum
+                </div>
+            </h1>
+            <form class="ui form registro">
+                <!-- <img class="ui small centered circular bordered image" ng-src="{{miImagen}}" ng-click="abrir()" /> -->
+                <h3 class="ui dividing header">Información del ave</h3>
+                <!-- Infromación general -->
+                <h4 class="ui header">Información general</h4>
+                <div class="field">
+                    <label>Nombre Común</label>
+                    <div class="ui input">
+                        <input type="text" name="nomComun" placeholder="Nombre común">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Nombre en inglés</label>
+                    <div class="ui input">
+                        <input type="text" name="nomIngles" placeholder="Nombre en inglés">
+                    </div>
+                </div>
+                <!-- Información Taxonómica -->
+                <h4 class="ui header">Información taxonómica  <i class="help circle icon"></i></h4>
+                <div class="three fields">
+                    <div class="field">
+                        <label>Orden</label>
+                        <div class="ui selection dropdown">
+                            <input name="orden" type="hidden">
+                            <div class="default text">Orden</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Orden 1">Ejemplo de Orden 1</div>
+                                <div class="item" data-value="Orden 2">Ejemplo de Orden 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Suborden</label>
+                        <div class="ui selection dropdown">
+                            <input name="suborden" type="hidden">
+                            <div class="default text">Suborden</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Suborden 1">Ejemplo de Suborden 1</div>
+                                <div class="item" data-value="Suborden 2">Ejemplo de Suborden 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Familia</label>
+                        <div class="ui selection dropdown">
+                            <input name="familia" type="hidden">
+                            <div class="default text">Familia</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Familia 1">Ejemplo de Familia 1</div>
+                                <div class="item" data-value="Familia 2">Ejemplo de Familia 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Genero</label>
+                        <div class="ui selection dropdown">
+                            <input name="genero" type="hidden">
+                            <div class="default text">Genero</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Genero 1">Ejemplo de Genero 1</div>
+                                <div class="item" data-value="Genero 2">Ejemplo de Genero 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Especie</label>
+                        <div class="ui selection dropdown">
+                            <input name="especie" type="hidden">
+                            <div class="default text">Especie</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Especie 1">Ejemplo de Especie 1</div>
+                                <div class="item" data-value="Especie 2">Ejemplo de Especie 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Información general -->
+                <h4 class="ui header">Aspecto - Comportamiento - Zona de Vida</h4>
+                <div class="three fields">
+                    <div class="field">
+                        <label>Tipo de Pico</label>
+                        <div class="ui selection dropdown">
+                            <input name="pico" type="hidden">
+                            <div class="default text">Tipo de Pico</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Tipo de Pico 1">Ejemplo de Tipo de Pico 1</div>
+                                <div class="item" data-value="Tipo de Pico 2">Ejemplo de Tipo de Pico 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Tamaño</label>
+                        <div class="ui selection dropdown">
+                            <input name="tamanio" type="hidden">
+                            <div class="default text">Tamaño</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Tamaño 1">Ejemplo de Tamaño 1</div>
+                                <div class="item" data-value="Tamaño 2">Ejemplo de Tamaño 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Cantidad de Huevos</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <div class="circular ui icon button" ng-click="eggAmount = eggAmount + 1">
+                                    <i class="toggle up icon"></i>
+                                </div>
+                                <div class="circular ui icon button" ng-click="subtractEgg()">
+                                    <i class="toggle down icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <h5 class="ui header">
+                                    <img src="assets/img/egg.png">
+                                    <div class="content">{{eggAmount}}</div>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Color</label>
+                        <div class="ui styled accordion">
+                            <div class="title">
+                                <i class="dropdown icon"></i>
+                                Color
+                            </div>
+                            <div class="content">
+                                <div class="ui form">
+                                    <div class="grouped fields">
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Rojo</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Amarillo</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Verde</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Morado</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Negro</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="color">
+                                            <label>Blanco</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Zona geográfica o de vida</label>
+                        <div class="ui icon input">
+                                <input type="text" name="geoZone" placeholder="Zona de vida">
+                                <i class="world icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Álbum de fotos -->
+                <h3 class="ui dividing header">Álbum de Fotos</h3>
+                <div class="ui segment">
+                    <div class="ui three special cards">
+                        <div class="card" ng-repeat="image in photoAlbum">
+                            <div class="image">
+                                <img src="{{image}}" class="ui small bordered image">
+                                <div class="ui mini red circular icon button especial"><i class="remove icon" ng-click="eliminarImagen(image)"></i></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="assets/img/imgPlus.jpg" class="ui small bordered image" ng-click="abrir(image)">
+                            </div>  
+                        </div>   
+                    </div>
+                </div>
+
+                <div class="ui submit green button">Crear Álbum</div>
+                <div class="ui red button">Cancelar</div>
+            </form>
+        </div>
+    </div>
+    <img src="assets/img/Wing-Watch.png" height="209" width="206" id="logo">
+</div>
+<!-- Para las fotos -->
+<div class="ui small test modal">
+    <div class="row">
+        <div class="four wide column"></div>
+        <div class="column ten wide">
+            <div class="ui center aligned segment">
+                <div>
+                    <label for="file" class="ui icon teal button">
+                        <i class="file icon"></i> Cargar Imagen</label>
+                    <input type="file" id="file" style="display:none">
+                </div>
+                <div class="cropArea">
+                    <img-crop image="myImage" area-type="square" result-image-quality="1.0" result-image="myCroppedImage"></img-crop>
+                </div>
+                <img class="ui small centered rounded bordered image" style="margin-top: 15px" ng-src="{{myCroppedImage}}" />
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black cancel button">
+            Cancelar
+        </div>
+        <div class="ui yellow ok right labeled icon button">
+            Guardar Cambios
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
