@@ -193,6 +193,8 @@
             var $form = $('.form.editarPerfil'),
                 allFields = $form.form('get values');
             console.log(allFields);
+            console.log(angular.equals($scope.usuarioOriginal,allFields));
+            $http.post('editarUsuario.php',allFields);
         };
 
         $('.menu .item').tab();
@@ -203,6 +205,7 @@
          * 
          */
         $scope.usuarioOriginal = {
+            apodo: 'Keea',
             nombre: 'Kevin',
             pApellido: 'Hernández',
             sApellido: 'Rostrán'

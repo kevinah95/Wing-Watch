@@ -20,7 +20,7 @@ app.controller('loginCtrl', function($scope,$http,$location) {
             var $promise=$http.post('_wing-watch-core/components/login-registro/login/logIn.php',allFields); 
             $promise.then(function(msg){
                 var uid=msg.data;
-
+                console.log(uid)
                 if(uid === "Not Found"){
                     swal({title: "Información Incorrecta", text: "Su apodo o contraseña no coinciden con nuestros clientes", type:"error"}, function(){history.go(0);});
                     $location.path('/login');

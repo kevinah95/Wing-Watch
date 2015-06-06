@@ -45,7 +45,7 @@
 
         $outp .="]";
 
-        echo(utf8_decode ($outp));
+        echo($outp);
     } else {
         echo "La base no tiene datos";
     }
