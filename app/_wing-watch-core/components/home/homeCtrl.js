@@ -69,6 +69,7 @@ app.controller('homeCtrl', function($scope, $http, $location) {
             renderer.setSize( window.innerWidth, window.innerHeight );
             render();
         }
+        console.clear();
     }
 
     
