@@ -49,7 +49,7 @@ app.controller('registroCtrl', function($scope, $http) {
             allFields = $form.form('get values');
 
         allFields.foto = $scope.miImagen;
-        allFields.hashpass = allFields.email + allFields.password;
+        allFields.hashpass = allFields.apodo + allFields.password;
         allFields.hashpass = encrypt(allFields.hashpass);
         
         var $validateResult = $form.form('validate form'); //verificar formulario validado
