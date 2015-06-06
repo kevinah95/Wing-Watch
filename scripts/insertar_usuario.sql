@@ -16,6 +16,6 @@ START TRANSACTION;
 	SET @last_id = LAST_INSERT_ID(); 
 	INSERT INTO wingwatch.telefono (telefono.TELEFONO,telefono.persona_ID) VALUES (`TELEFONO`,@last_id);
 	INSERT INTO wingwatch.correo (correo.CORREO,correo.persona_ID) VALUES (`CORREO`,@last_id);
-	INSERT INTO wingwatch.usuario (usuario.NICKNAME,usuario.PASSWORD,usuario.CEDULA,usuario.ES_ADMIN,usuario.FOTO_PERFIL,usuario.tipo_usuario_ID,usuario.persona_ID) VALUES (`NICKNAME`,`PASSWORD`,`CEDULA`,`ES_ADMIN`,`FOTO_PERFIL`,`TIPO`,@last_id);
+	INSERT INTO wingwatch.usuario (usuario.NICKNAME,usuario.PASSWORD,usuario.HASH,usuario.CEDULA,usuario.ES_ADMIN,usuario.FOTO_PERFIL,usuario.tipo_usuario_ID,usuario.persona_ID) VALUES (`NICKNAME`,`PASSWORD`,`HASH`,`CEDULA`,`ES_ADMIN`,`FOTO_PERFIL`,`TIPO`,@last_id);
 	COMMIT;
 END //
