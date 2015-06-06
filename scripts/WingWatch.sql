@@ -346,11 +346,9 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `wingwatch`.`usuario` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `NICKNAME` VARCHAR(255) NOT NULL,
-  `HASH` TINYTEXT NOT NULL,
   `PASSWORD` VARCHAR(255) NOT NULL,
   `CEDULA` INT NOT NULL,
   `ES_ADMIN` INT NOT NULL,
-  `FOTO_PERFIL` MEDIUMTEXT NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
   `FECHA_CREACION` DATE NOT NULL,
@@ -360,6 +358,8 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`usuario` (
   PRIMARY KEY (`ID`),
   INDEX `fk_usuario_tipo_usuario1_idx` (`tipo_usuario_ID` ASC),
   INDEX `fk_usuario_persona1_idx` (`persona_ID` ASC),
+  UNIQUE INDEX `NICKNAME_UNIQUE` (`NICKNAME` ASC),
+  UNIQUE INDEX `CEDULA_UNIQUE` (`CEDULA` ASC),
   CONSTRAINT `fk_usuario_tipo_usuario1`
     FOREIGN KEY (`tipo_usuario_ID`)
     REFERENCES `wingwatch`.`tipo_usuario` (`ID`)
@@ -391,6 +391,24 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`fotos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+USE `wingwatch` ;
+
+-- -----------------------------------------------------
+-- function crearCuenta
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `wingwatch`$$
+CREATE DEFINER=`WingWatch`@`localhost` FUNCTION `crearCuenta`(`Correo` TINYTEXT, `Encriptacion` TINYTEXT, `Nombre` TINYTEXT, `P_Apellido` TINYTEXT, `S_Apellido` TINYTEXT, `Contrasenia` TINYTEXT, `Tipo_Usuario` BIT) RETURNS tinytext CHARSET utf8
+    DETERMINISTIC
+BEGIN
+	DECLARE EXIT HANDLER FOR 1062 return 'El id ya exite';
+	INSERT into usuarios(usuarios.CORREO,usuarios.ENCRIPTACION,usuarios.NOMBRE,usuarios.P_APELLIDO,usuarios.S_APELLIDO,usuarios.CONTRASENIA,usuarios.TIPO_USUARIO) 
+	values (Correo,Encriptacion,Nombre,P_Apellido,S_Apellido,Contrasenia,Tipo_Usuario);
+	return 'Insertado';
+END$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
