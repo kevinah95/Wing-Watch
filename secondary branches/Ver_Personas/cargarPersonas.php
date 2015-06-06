@@ -1,13 +1,13 @@
 <?php
     $dataBaseConnection = new mysqli("localhost", "WingWatch", "WingWatch", "wingwatch");
 
-	if (mysqli_connect_errno()) {
-	    printf("Connect failed: %s\n", mysqli_connect_error());
-	    exit();
-	} 
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    } 
 
     $sql = "SELECT 
-                usuario.CEDULA, usuario.NICKNAME, usuario.ES_ADMIN, usuario.tipo_usuario_ID,
+                usuario.CEDULA, usuario.NICKNAME, usuario.ES_ADMIN, usuario.tipo_usuario_ID, usuario.FOTO_PERFIL,
                 persona.NOMBRE, persona.PRIMER_APELLIDO, persona.SEGUNDO_APELLIDO,
                 telefono.TELEFONO,
                 correo.CORREO
@@ -35,6 +35,7 @@
             $outp .= '"Telefono":"'   . $row["TELEFONO"]   . '",';
             $outp .= '"Es_Admin":"'   . $row["ES_ADMIN"]   . '",';
             $outp .= '"Correo":"'   . $row["CORREO"]   . '",';
+            $outp .= '"Foto":"'   . $row["FOTO_PERFIL"]   . '",';
             $outp .= '"TipoUsuario":"'   . $row["tipo_usuario_ID"]   . '"}';
         }
 
