@@ -348,7 +348,6 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`usuario` (
   INDEX `fk_usuario_persona1_idx` (`persona_ID` ASC),
   UNIQUE INDEX `NICKNAME_UNIQUE` (`NICKNAME` ASC),
   UNIQUE INDEX `CEDULA_UNIQUE` (`CEDULA` ASC),
-  UNIQUE INDEX `HASH_UNIQUE` (`HASH` ASC),
   CONSTRAINT `fk_usuario_tipo_usuario1`
     FOREIGN KEY (`tipo_usuario_ID`)
     REFERENCES `wingwatch`.`tipo_usuario` (`ID`)
