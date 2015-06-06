@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.min.css">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Registrar Álbum</title>
+    </head>
+    <body ng-controller="myCtrl">
+        <div class="ui one column centered padded grid">
+            <div class="column">
+                <div class="ui bottom attached segment">
+                    <h1 class="ui header center aligned">
+                    <img src="Images/Wing-Watch.png">
+                    <div class="content">
+                        Usuarios de Wing Watch
+                    </div>
+                    <img src="Images/iconPerson.png">
+                    </h1>
+                </div>
+                <div class="ui segment">
+                    <h3 class="ui dividing header">
+                    Filtrar Usuarios
+                    </h3>
+                </div>
+                <div class="ui segment">
+                    <div class="ui six special cards">
+                        <div class="card" ng-repeat="user in users">
+                            <div class="dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui big label">{{user.TipoUsuario}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="ui medium image" src="https://randomuser.me/api/portraits/med/men/79.jpg">
+                            <div class="content">
+                                <a class="header">{{user.Nombre + " " + user.P_Apellido + " " + user.S_Apellido}}</a>
+                                <div class="meta">
+                                        <span>{{user.Apodo}}</span>
+                                        <div class="divider"></div>
+                                        <span>{{"Cédula: " + user.Cedula}}</span>
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <a>
+                                    <i class="call icon"></i>
+                                    {{user.Telefono}}
+                                    <br>
+                                    <i class="mail icon"></i>
+                                    {{user.Correo}}
+                            </div>
+                            <script>
+                            $('.special.cards .image').dimmer({
+                                on: 'hover'
+                            });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', ['$scope','$http', function($scope, $http) {
+    $http.get('cargarPersonas.php').success(function(data) { $scope.users = data;  console.log($scope.users);});
+    }]);
+    </script>
+</body>
+</html>
