@@ -1,10 +1,10 @@
 <?php
     $dataBaseConnection = new mysqli("localhost", "WingWatch", "WingWatch", "wingwatch");
 
-    if (mysqli_connect_errno()) {
-        printf("Connect failed: %s\n", mysqli_connect_error());
-        exit();
-    } 
+	if (mysqli_connect_errno()) {
+	    printf("Connect failed: %s\n", mysqli_connect_error());
+	    exit();
+	} 
 
     $sql = "SELECT 
                 usuario.CEDULA, usuario.NICKNAME, usuario.ES_ADMIN, usuario.tipo_usuario_ID, usuario.FOTO_PERFIL,
