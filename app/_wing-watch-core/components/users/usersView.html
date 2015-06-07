@@ -1,0 +1,109 @@
+<div class="ui one column centered padded grid">
+    <div class="column">
+        <div class="ui bottom attached segment">
+            <h1 class="ui header center aligned">
+            <img src="assets/img/Wing-Watch.png">
+            <div class="content">
+                Usuarios de Wing Watch
+            </div>
+            <img src="assets/img/iconPerson.png">
+            </h1>
+        </div>
+        <div class="ui segment">
+            <h3 class="ui dividing header">
+            Filtrar Usuarios
+            <h5>
+                <div class="four wide column">       
+                    <input value="1" type="radio" ng-model="filtro.TipoUsuario">
+                    <label>Aficionados</label>
+                    <input value="2" type="radio" ng-model="filtro.TipoUsuario">
+                    <label>Ornitólogos</label>    
+                    <input value="" type="radio" ng-model="filtro.TipoUsuario">
+                    <label>No filtrar</label>
+                </div>
+            </h5>
+            </h3>
+            <div class="ui grid">
+                <div class="two wide column">
+                    <label>Nombre</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Nombre" ng-model="filtro.Nombre"> 
+                    </div>                    
+                </div>
+                <div class="two wide column">
+                    <label>Primer Apellido</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Primer Apellido" ng-model="filtro.P_Apellido"> 
+                    </div> 
+                </div>
+                <div class="two wide column">
+                    <label>Segundo Apellido</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Segundo Apellido" ng-model="filtro.S_Apellido"> 
+                    </div> 
+                </div>
+                <div class="two wide column">
+                    <label>Teléfono</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Teléfono" ng-model="filtro.Telefono"> 
+                    </div> 
+                </div>
+                <div class="two wide column">
+                    <label>Cédula</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Cédula" ng-model="filtro.Cedula"> 
+                    </div> 
+                </div>
+                <div class="two wide column">
+                    <label>Correo</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Correo" ng-model="filtro.Correo"> 
+                    </div> 
+                </div>
+                <div class="two wide column">
+                    <label>Apodo</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Apodo" ng-model="filtro.Apodo"> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <div class="ui six special cards">
+                <div class="card" ng-repeat="user in users | filter:filtro:strict">
+                    <div class="dimmable image">
+                        <img class="ui medium image" ng-src="{{user.Foto}}">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui big label">{{getTipo(user.TipoUsuario)}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="content">
+                        <a class="header">{{user.Nombre + " " + user.P_Apellido + " " + user.S_Apellido}}</a>
+                        <div class="meta">
+                                <span>{{user.Apodo}}</span>
+                                <div class="divider"></div>
+                                <span>{{"Cédula: " + user.Cedula}}</span>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="call icon"></i>
+                            {{user.Telefono}}
+                            <br>
+                            <i class="mail icon"></i>
+                            {{user.Correo}}
+                    </div>
+                    <script>
+                    $('.special.cards .image').dimmer({
+                        on: 'hover'
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
