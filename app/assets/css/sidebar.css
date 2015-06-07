@@ -1,22 +1,22 @@
 
 
-.caret.right {
+/*.caret.right {
     border-left: 5px solid;
     border-bottom: 4px solid transparent;
     border-top: 4px solid transparent;
-}
+}*/
 
 
-.dropdown:hover .dropdown-menu {
+/*.dropdown:hover .dropdown-menu {
   display: block;
 }
 
 .dropdown-menu .nav-header {
   	padding-left: 10px;
   	font: 10px gill sans, sans-serif;
-}
+}*/
 
-.iconSize {
+/*.iconSize {
     right: 2%;
     font-size: 50px;
 }
@@ -33,12 +33,12 @@
     color: #ffffff;
     font-size: 18px;
     font-family: "Times New Roman", Times, serif;
-}
+}*/
 
 
-.sidebarMenu {
+/*.sidebarMenu {
     position: absolute;
     left: 1%;
     top: 1%;
-}
+}*/
 

@@ -15,7 +15,7 @@ app.controller('loginCtrl', function($scope,$http,$location) {
             allFields.hashpass = encrypt(allFields.hashpass);
 
             //console.log(allFields.apodo);
-            //console.log(allFields.hashpass);
+            // console.log(allFields.hashpass);
 
             var $promise=$http.post('_wing-watch-core/components/login-registro/login/logIn.php',allFields); 
             $promise.then(function(msg){

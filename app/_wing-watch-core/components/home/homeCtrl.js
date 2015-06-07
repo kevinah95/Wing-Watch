@@ -7,16 +7,46 @@ app.controller('homeCtrl', function($scope, $http, $location) {
             "assets/models/duck.json",  "assets/models/crow.json",  "assets/models/eagle2.json",
             /*"assets/models/penguin.json"*/
         ];
-            
+           $scope.usuarioInfo = JSON.parse(sessionStorage.user); 
     window.onload = function(){
         $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle');
         $('.dropdown').dropdown({transition: 'drop'});
 
+
+        $('.dropdown.config').popup({
+            inverted: true,
+            position: 'bottom left',
+            title   : 'Configuración',
+            content : 'Haga cambios en la configuración o vea la documentación'
+            });
+
+        $('.dropdown.newBird').popup({
+            inverted: true,
+            position: 'bottom left',
+            title   : 'Cambiar ave',
+            content : 'Reinicia el modelo tridimensional'
+            });
+
+        $('.dropdown.login').popup({
+            inverted: true,
+            position: 'bottom left',
+            title   : 'Inicie o cierre sesión',
+            content : 'Le enviará a la página de inicio de sesión'
+            });
+
         loadThreeJSModel();
+        $scope.usuarioInfo = JSON.parse(sessionStorage.user);
     }
 
+    $scope.abrirEditarPerfil = function() {
+        console.log('entra');
+        $location.path('/editarUsuario');
+        
+    }
+    
     function loadThreeJSModel() {
         document.getElementById("TJS").innerHTML = "";
+        
         var container = document.getElementById("TJS");
         var 
             model = getRandomInt(0,models.length - 1);
@@ -69,9 +99,7 @@ app.controller('homeCtrl', function($scope, $http, $location) {
             renderer.setSize( window.innerWidth, window.innerHeight );
             render();
         }
-        console.clear();
     }
-
     
     $scope.transit = function(){
         $('.homeDiv').transition('vertical flip');
@@ -87,4 +115,7 @@ app.controller('homeCtrl', function($scope, $http, $location) {
     window.onhashchange = function(){
         history.go(0);
     }
+
+
+    
 });

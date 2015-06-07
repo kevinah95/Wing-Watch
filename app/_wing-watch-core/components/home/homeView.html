@@ -1,45 +1,49 @@
 <div class="homeDiv">
-    <!-- <div class="sidebarMenu">
-        <div class="ui button uiside" > <p class ="iconSize"> <i class="fa fa-align-justify"></i> </p> </div>
-        <div class="ui inverted black left vertical sidebar menu">
-            <p class="item"> <hr> </p>
-            <a class="item"> <h1 class="customText">Inicio</h1> </a>
-            <a class="item"> <h1 class="customText">Todas las aves</h1> </a>
-            <a class="item"> <h1 class="customText">Mis aves</h1>  </a>
-            <a class="item"> <h1 class="customText">Ornitólogos</h1> </a>
-            <p class="item"> <hr> </p>
-            <p class="item"> <img src="assets/img/Wing-Watch-White.png" width="250px" height ="250px"> </p>
-            <p class="item"> <hr> </p>
-        </div>     
-    </div> -->
-    <sidebar-directive></sidebar-directive>
-    
-    <img class= "abs"src="assets/img/Wing-Watch.png" width="200px" height ="200px">
+    <div class="ui vertical inverted fixed icon menu">
+        <a class="item ui">
+            <div class="right floated author">
+                <img class="ui avatar image" ng-src="{{usuarioInfo.Foto}}" ng-click="abrirEditarPerfil()">
+            </div>
+            {{usuarioInfo.Nombre}}
 
-    <div class="config">
-        <div class="ui floating upward vertical dropdown button configIcon">
-            <div class ="iconSize2"> <i class="fa fa-cog"></i> </div>
+            <div class="ui special popup">
+                <div class="header">Custom Header</div>
+                <div class="ui button">Click Me</div>
+            </div>
+        </a>
+        
+        <div class="item ui dropdown config"> <i class="setting big icon"></i> 
             <div class="ui left menu">
                 <div class="header">Profesora</div>
-                <div class="item"><a href="https://www.facebook.com/adriana.alvarez.9277"> Adriana Álvarez </a></div>
+                <a class="item" href="https://www.facebook.com/adriana.alvarez.9277"> Adriana Álvarez </a> 
                 <div class="header">Estudiantes </div>
-                <div class="item"> <a href="https://www.facebook.com/jm95aguilar"> Jose Aguilar </a> </div>
-                <div class="item"> <a href="https://www.facebook.com/kevinah95"> Kevin Hernández </a> </div>
-                <div class="item"> <a href="https://www.facebook.com/menoc.sk27"> Julián Méndez </a> </div>
-                <div class="item"> <a href="https://www.facebook.com/jasson.moyaalvarez"> Jasson Moya </a> </div>
+                <a class="item" href="https://www.facebook.com/jm95aguilar"> Jose Aguilar </a> 
+                <a class="item" href="https://www.facebook.com/kevinah95"> Kevin Hernández </a> 
+                <a class="item" href="https://www.facebook.com/menoc.sk27"> Julián Méndez </a> 
+                <a class="item" href="https://www.facebook.com/jasson.moyaalvarez"> Jasson Moya </a> 
             </div>
+            <div class="ui special popup">
+                <div class="header">Custom Header</div>
+                <div class="ui button">Click Me</div>
+            </div>
+        </div>
+
+        <div class="item dropdown newBird" ng-click="transit()">
+            <i class="random big icon"> </i>
+        </div>
+        
+        <div class="item dropdown login" ng-click="login()">
+            <i class="key big icon"> </i>
         </div>
     </div>
 
-    <div class="ui icon button randomCarrousel" ng-click="transit()">
-        <i class="fa fa-random"> </i>
-    </div>
-
-    <div class="ui icon button loginIcon" ng-click="login()">
-        <i class="fa fa-key"> </i>
-    </div>
-    
     <div id="TJS">
         <!-- Acá se carga el modelo -->
-    </div>    
+    </div>  
+
+    <img class="abs" src="assets/img/Wing-Watch.png" width="200px" height ="200px">
+
 </div>
+ 
+
+

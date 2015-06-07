@@ -7,8 +7,10 @@
     } 
 
     $user = json_decode(file_get_contents('php://input'));  
+    
     $sql = "SELECT 
                 usuario.CEDULA, usuario.NICKNAME, usuario.ES_ADMIN, usuario.tipo_usuario_ID, usuario.FOTO_PERFIL,
+                usuario.HASH,usuario.ID,
                 persona.NOMBRE, persona.PRIMER_APELLIDO, persona.SEGUNDO_APELLIDO,
                 telefono.TELEFONO,
                 correo.CORREO
@@ -32,6 +34,7 @@
         while($row = $result->fetch_assoc()) {
             if ($outp != "[") {$outp .= ",";}
             $outp .= '{"Cedula":"'  . $row["CEDULA"] . '",';
+            $outp .= '"Id_Usuario":"'   . $row["ID"]        . '",';
             $outp .= '"Nombre":"'   . $row["NOMBRE"]        . '",';
             $outp .= '"Apodo":"'   . $row["NICKNAME"]        . '",';
             $outp .= '"P_Apellido":"'   . $row["PRIMER_APELLIDO"] . '",';
@@ -40,6 +43,7 @@
             $outp .= '"Es_Admin":"'   . $row["ES_ADMIN"]   . '",';
             $outp .= '"Correo":"'   . $row["CORREO"]   . '",';
             $outp .= '"Foto":"'   . $row["FOTO_PERFIL"]   . '",';
+            $outp .= '"Hash":"'   . $row["HASH"]   . '",';
             $outp .= '"TipoUsuario":"'   . $row["tipo_usuario_ID"]   . '"}';
         }
 

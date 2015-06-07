@@ -1,5 +1,5 @@
 body {
-    overflow: hidden;
+   overflow: hidden; 
 }
 
 #TJS {
@@ -13,40 +13,10 @@ body {
     border-top: 4px solid transparent;
 }
 
-
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu .nav-header {
-  	padding-left: 10px;
-  	font: 10px gill sans, sans-serif;
-}
-
-.navbar {
-   background: rgba(0,0,0,0);
-}
-
-.navbar-right {
-    margin-right: 0px;
-}
-
-.iconSize {
-    right: 2%;
-    font-size: 50px;
-}
-
-
-.ui.button.uiside {
-    position: absolute;
-    margin-top: 0%;
-    background-color: #F7F7F7;
-}
-
-.ui.button {
-    margin-top: 20%;
-    background-color: #F7F7F7;
-}
 .customText {
     color: #ffffff;
     font-size: 18px;
@@ -55,36 +25,16 @@ body {
 
 .abs{
     position: absolute;
+    top: 65%;
     right: 1%;
-    top: 30px;
 }
 
-.sidebarMenu {
+/*.aparecer {
     position: absolute;
-    left: 1%;
-    top: 1%;
-}
+    width: 480px;
+    z-index: 9999;
+    border-radius: 10px;
+    background-color: #D5D6D8;
+    display: none;
+}*/
 
-.iconSize2 {
-    font-size: 50px;
-}
-
-.config {
-    position: absolute;
-    left: 1%;
-    bottom: 10%;
-}
-
-.ui.button.randomCarrousel {
-    font-size: 40px;
-    position: absolute;
-    right: 46%;
-    bottom: 8%;   
-}
-
-.ui.button.loginIcon {
-    font-size: 40px;
-    position: absolute;
-    right: 1%;
-    bottom: 10%;   
-}
