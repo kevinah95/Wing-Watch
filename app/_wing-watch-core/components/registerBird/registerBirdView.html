@@ -12,129 +12,87 @@
             <form class="ui form registro">
                 <!-- <img class="ui small centered circular bordered image" ng-src="{{miImagen}}" ng-click="abrir()" /> -->
                 <h3 class="ui dividing header">Información del ave</h3>
-                <!-- Infromación general -->
-                <h4 class="ui header">Información general</h4>
-                <div class="field">
-                    <label>Nombre Común</label>
-                    <div class="ui input">
-                        <input type="text" name="nomComun" placeholder="Nombre común">
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Nombre en inglés</label>
-                    <div class="ui input">
-                        <input type="text" name="nomIngles" placeholder="Nombre en inglés">
-                    </div>
-                </div>
                 <!-- Información Taxonómica -->
                 <h4 class="ui header">Información taxonómica  <i class="help circle icon"></i></h4>
-                <div class="three fields">
-                    <div class="field">
-                        <label>Orden</label>
-                        <div class="ui selection dropdown">
-                            <input name="orden" type="hidden">
-                            <div class="default text">Orden</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Orden 1">Ejemplo de Orden 1</div>
-                                <div class="item" data-value="Orden 2">Ejemplo de Orden 2</div>
-                            </div>
-                        </div>
+                
+                <div class="field">
+                  <label>Especie</label>
+                  <div class="ui dropdown selection">
+                    <input type="hidden" name="especie">
+                    <div class="default text">Seleccione una especie</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="Especie 1">Especie 1</div>
+                      <div class="item" data-value="Especie 2">Especie 2</div>
                     </div>
-                    <div class="field">
-                        <label>Suborden</label>
-                        <div class="ui selection dropdown">
-                            <input name="suborden" type="hidden">
-                            <div class="default text">Suborden</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Suborden 1">Ejemplo de Suborden 1</div>
-                                <div class="item" data-value="Suborden 2">Ejemplo de Suborden 2</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Familia</label>
-                        <div class="ui selection dropdown">
-                            <input name="familia" type="hidden">
-                            <div class="default text">Familia</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Familia 1">Ejemplo de Familia 1</div>
-                                <div class="item" data-value="Familia 2">Ejemplo de Familia 2</div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>Genero</label>
-                        <div class="ui selection dropdown">
-                            <input name="genero" type="hidden">
-                            <div class="default text">Genero</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Genero 1">Ejemplo de Genero 1</div>
-                                <div class="item" data-value="Genero 2">Ejemplo de Genero 2</div>
-                            </div>
-                        </div>
+                <div class="ui divided selection list">
+                      <a class="item">
+                        <div class="ui purple horizontal label">Nombre Común</div>
+                        Nombre Común
+                      </a>
+                      <a class="item">
+                        <div class="ui purple horizontal label">Nombre en Inglés</div>
+                        Nombre en Inglés
+                      </a>
+                      <a class="item">
+                        <div class="ui purple horizontal label">Clase</div>
+                        Clase
+                      </a>
+                      <a class="item">
+                        <div class="ui teal horizontal label">Orden</div>
+                        Orden
+                      </a>
+                      <a class="item">
+                        <div class="ui teal horizontal label">Suborden</div>
+                        Suborden
+                      </a>
+                      <a class="item">
+                        <div class="ui teal horizontal label">Familia</div>
+                        Familia
+                      </a>
+                      <a class="item">
+                        <div class="ui teal horizontal label">Género</div>
+                        Género
+                      </a>
+                      <a class="item">
+                        <div class="ui teal horizontal label">Nombre Científico</div>
+                        Especie
+                      </a>
                     </div>
-                    <div class="field">
-                        <label>Especie</label>
-                        <div class="ui selection dropdown">
-                            <input name="especie" type="hidden">
-                            <div class="default text">Especie</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Especie 1">Ejemplo de Especie 1</div>
-                                <div class="item" data-value="Especie 2">Ejemplo de Especie 2</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Información general -->
                 <h4 class="ui header">Aspecto - Comportamiento - Zona de Vida</h4>
-                <div class="three fields">
-                    <div class="field">
-                        <label>Tipo de Pico</label>
-                        <div class="ui selection dropdown">
-                            <input name="pico" type="hidden">
-                            <div class="default text">Tipo de Pico</div>
+                <div class="field">
+                    <label>Zona geográfica o de vida</label>
+                    <div class="ui styled accordion">
+                        <div class="title">
                             <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Tipo de Pico 1">Ejemplo de Tipo de Pico 1</div>
-                                <div class="item" data-value="Tipo de Pico 2">Ejemplo de Tipo de Pico 2</div>
-                            </div>
+                            Zona de Vida
                         </div>
-                    </div>
-                    <div class="field">
-                        <label>Tamaño</label>
-                        <div class="ui selection dropdown">
-                            <input name="tamanio" type="hidden">
-                            <div class="default text">Tamaño</div>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="Tamaño 1">Ejemplo de Tamaño 1</div>
-                                <div class="item" data-value="Tamaño 2">Ejemplo de Tamaño 2</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Cantidad de Huevos</label>
-                        <div class="two fields">
-                            <div class="field">
-                                <div class="circular ui icon button" ng-click="eggAmount = eggAmount + 1">
-                                    <i class="toggle up icon"></i>
+                        <div class="content">
+                            <div class="ui form">
+                                <div class="grouped fields">
+                                    <div class="field">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
+                                        <label>Bosque Nuboso</label>
+                                      </div>
+                                    </div>
+                                    <div class="field">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
+                                        <label>Bosque seco</label>
+                                      </div>
+                                    </div>
+                                    <div class="field">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
+                                        <label>Bosque Húmedo</label>
+                                      </div>
+                                    </div>
                                 </div>
-                                <div class="circular ui icon button" ng-click="subtractEgg()">
-                                    <i class="toggle down icon"></i>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <h5 class="ui header">
-                                    <img src="assets/img/egg.png">
-                                    <div class="content">{{eggAmount}}</div>
-                                </h5>
                             </div>
                         </div>
                     </div>
@@ -152,37 +110,19 @@
                                     <div class="grouped fields">
                                         <div class="field">
                                           <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
+                                            <input type="checkbox" name="color[]" value="Rojo">
                                             <label>Rojo</label>
                                           </div>
                                         </div>
                                         <div class="field">
                                           <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
+                                            <input type="checkbox" name="color[]" value="Amarillo">
                                             <label>Amarillo</label>
                                           </div>
                                         </div>
                                         <div class="field">
                                           <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
-                                            <label>Verde</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
-                                            <label>Morado</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
-                                            <label>Negro</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color">
+                                            <input type="checkbox" name="color[]" value="Blanco">
                                             <label>Blanco</label>
                                           </div>
                                         </div>
@@ -192,10 +132,76 @@
                         </div>
                     </div>
                     <div class="field">
-                        <label>Zona geográfica o de vida</label>
-                        <div class="ui icon input">
-                                <input type="text" name="geoZone" placeholder="Zona de vida">
-                                <i class="world icon"></i>
+                        <label>Tipo de Pico</label>
+                        <div class="ui styled accordion">
+                            <div class="title">
+                                <i class="dropdown icon"></i>
+                                Tipo de Pico
+                            </div>
+                            <div class="content">
+                                <div class="ui form">
+                                    <div class="grouped fields">
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="pico[]" value="Corto">
+                                            <label>Corto</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="pico[]" value="Largo">
+                                            <label>Largo</label>
+                                          </div>
+                                        </div>
+                                        <div class="field">
+                                          <div class="ui checkbox">
+                                            <input type="checkbox" name="pico[]" value="Grueso">
+                                            <label>Grueso</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Cantidad Menor de Huevos</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <div class="circular ui icon button" ng-click="eggAmount = eggAmount + 1">
+                                    <i class="toggle up icon"></i>
+                                </div>
+                                <div class="circular ui icon button" ng-click="subtractEgg()">
+                                    <i class="toggle down icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <h5 class="ui header">
+                                    <img src="assets/img/egg.png">
+                                    <div class="content">{{eggAmount}}</div>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Cantidad Mayor de Huevos</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <div class="circular ui icon button" ng-click="eggAmount2 = eggAmount2 + 1">
+                                    <i class="toggle up icon"></i>
+                                </div>
+                                <div class="circular ui icon button" ng-click="subtractEgg2()">
+                                    <i class="toggle down icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <h5 class="ui header">
+                                    <img src="assets/img/egg.png">
+                                    <div class="content">{{eggAmount2}}</div>
+                                </h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,7 +211,7 @@
                     <div class="ui three special cards">
                         <div class="card" ng-repeat="image in photoAlbum">
                             <div class="image">
-                                <img src="{{image}}" class="ui small bordered image">
+                                <img ng-src="{{image}}" class="ui small bordered image">
                                 <div class="ui mini red circular icon button especial"><i class="remove icon" ng-click="eliminarImagen(image)"></i></div>
                             </div>
                         </div>
@@ -217,7 +223,7 @@
                     </div>
                 </div>
 
-                <div class="ui submit green button">Crear Álbum</div>
+                <div class="ui green button"  ng-click="registrarAve()">Crear Álbum</div>
                 <div class="ui red button">Cancelar</div>
             </form>
         </div>

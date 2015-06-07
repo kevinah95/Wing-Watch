@@ -127,6 +127,8 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_especie` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `DESCRIPCION` VARCHAR(255) NOT NULL,
   `NOMBRE_GENERO` VARCHAR(255) NOT NULL,
+  `NOMBRE_COMUN` VARCHAR(255) NULL,
+  `NOMBRE_INGLES` VARCHAR(45) NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
   `FECHA_CREACION` DATE NOT NULL,
@@ -148,22 +150,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_cantidad_huevos` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `DESCRIPCION` VARCHAR(255) NOT NULL,
-  `NOMBRE_ESPECIE` VARCHAR(255) NOT NULL,
+  `CANTIDAD` INT NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
   `FECHA_CREACION` DATE NOT NULL,
   `FECHA_MODIFICACION` DATE NOT NULL,
-  `catalogo_especie_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_catalogo_cantidad_huevos_catalogo_especie1_idx` (`catalogo_especie_ID` ASC),
-  CONSTRAINT `fk_catalogo_cantidad_huevos_catalogo_especie1`
-    FOREIGN KEY (`catalogo_especie_ID`)
-    REFERENCES `wingwatch`.`catalogo_especie` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -186,22 +179,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_tipo_pico` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `DESCRIPCION` VARCHAR(255) NOT NULL,
-  `NOMBRE_ESPECIE` VARCHAR(255) NOT NULL,
+  `DESCRIPCION` VARCHAR(45) NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
   `FECHA_CREACION` DATE NOT NULL,
   `FECHA_MODIFICACION` DATE NOT NULL,
-  `catalogo_especie_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_catalogo_tipo_pico_catalogo_especie1_idx` (`catalogo_especie_ID` ASC),
-  CONSTRAINT `fk_catalogo_tipo_pico_catalogo_especie1`
-    FOREIGN KEY (`catalogo_especie_ID`)
-    REFERENCES `wingwatch`.`catalogo_especie` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -261,6 +245,20 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `wingwatch`.`catalogo_cantidad_huevos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_cantidad_huevos` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `CANTIDAD` INT NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `wingwatch`.`pajaro_x_persona`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`pajaro_x_persona` (
@@ -272,9 +270,13 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`pajaro_x_persona` (
   `FECHA_MODIFICACION` DATE NOT NULL,
   `persona_ID` INT NOT NULL,
   `catalogo_especie_ID` INT NOT NULL,
+  `catalogo_cantidad_huevos_ID_menor` INT NOT NULL,
+  `catalogo_cantidad_huevos_ID_mayor` INT NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_pajaro_x_persona_persona1_idx` (`persona_ID` ASC),
   INDEX `fk_pajaro_x_persona_catalogo_especie1_idx` (`catalogo_especie_ID` ASC),
+  INDEX `fk_pajaro_x_persona_catalogo_cantidad_huevos1_idx` (`catalogo_cantidad_huevos_ID_menor` ASC),
+  INDEX `fk_pajaro_x_persona_catalogo_cantidad_huevos2_idx` (`catalogo_cantidad_huevos_ID_mayor` ASC),
   CONSTRAINT `fk_pajaro_x_persona_persona1`
     FOREIGN KEY (`persona_ID`)
     REFERENCES `wingwatch`.`persona` (`ID`)
@@ -283,6 +285,16 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`pajaro_x_persona` (
   CONSTRAINT `fk_pajaro_x_persona_catalogo_especie1`
     FOREIGN KEY (`catalogo_especie_ID`)
     REFERENCES `wingwatch`.`catalogo_especie` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pajaro_x_persona_catalogo_cantidad_huevos1`
+    FOREIGN KEY (`catalogo_cantidad_huevos_ID_menor`)
+    REFERENCES `wingwatch`.`catalogo_cantidad_huevos` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pajaro_x_persona_catalogo_cantidad_huevos2`
+    FOREIGN KEY (`catalogo_cantidad_huevos_ID_mayor`)
+    REFERENCES `wingwatch`.`catalogo_cantidad_huevos` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -431,6 +443,60 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`zonas_x_pajaro` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`catalogo_tipo_pico`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_tipo_pico` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `DESCRIPCION` VARCHAR(45) NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`picos_x_pajaro`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`picos_x_pajaro` (
+  `catalogo_tipo_pico_ID` INT NOT NULL,
+  `pajaro_x_persona_ID` INT NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`catalogo_tipo_pico_ID`, `pajaro_x_persona_ID`),
+  INDEX `fk_catalogo_tipo_pico_has_pajaro_x_persona_pajaro_x_persona_idx` (`pajaro_x_persona_ID` ASC),
+  INDEX `fk_catalogo_tipo_pico_has_pajaro_x_persona_catalogo_tipo_pi_idx` (`catalogo_tipo_pico_ID` ASC),
+  CONSTRAINT `fk_catalogo_tipo_pico_has_pajaro_x_persona_catalogo_tipo_pico1`
+    FOREIGN KEY (`catalogo_tipo_pico_ID`)
+    REFERENCES `wingwatch`.`catalogo_tipo_pico` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_catalogo_tipo_pico_has_pajaro_x_persona_pajaro_x_persona1`
+    FOREIGN KEY (`pajaro_x_persona_ID`)
+    REFERENCES `wingwatch`.`pajaro_x_persona` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`email`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`email` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `CORREO` VARCHAR(255) NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NOT NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
+  `FECHA_CREACION` DATE NOT NULL,
+  `FECHA_MODIFICACION` DATE NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 USE `wingwatch` ;
 

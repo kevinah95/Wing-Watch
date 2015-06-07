@@ -19,23 +19,36 @@ INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `cat
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Cantorchilus', 'Troglodytidae', 2);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Pheugopedius', 'Troglodytidae', 2);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Henicorhina', 'Troglodytidae', 2);
-INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Cantorchilus', 'Troglodytidae', 2);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Cyanocompsa', 'Cardinalidae', 3);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Tityra', 'Incertae Sedis', 4);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Coereba', 'Incertae Sedis', 4);
 INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Piprites', 'Incertae Sedis', 4);
+INSERT INTO `wingwatch`.`catalogo_genero` (`DESCRIPCION`, `NOMBRE_FAMILIA`, `catalogo_familia_ID`) VALUES ('Insertae Sedis', 'Incertae Sedis', 4);
 
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Glyphorhynchus spirurus', 'Glyphorhynchus', 1);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Dendrocolaptes Certhia', 'Dendrocolaptes', 2);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Lepidocolaptes souleyetii', 'Lepidocolaptes', 3);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Cantorchilus modestus', 'Cantorchilu', 4);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Pheugopedius rutilus', 'Pheugopedius', 5);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Henicorhina leucosticta', 'Henicorhina', 6);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Henicorhina leucophrys', 'Henicorhina', 6);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Cyanocompsa cyanoides', 'Cyanocompsa', 7);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Tityra inquisitor', 'Tityra', 8);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Coereba flaveola', 'Coereba', 9);
-INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`) VALUES ('Piprites griseiceps', 'Piprites', 10);
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Glyphorhynchus spirurus', 'Glyphorhynchus', 1,'Trepadorcito Pico de Cuña','Wedge-billed Woodcreeper');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Dendrocolaptes Certhia', 'Dendrocolaptes', 2,'Trepador Barreteado','Barred Woodcreeper');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Lepidocolaptes souleyetii', 'Lepidocolaptes', 3,'Trepador Cabecirrayado','Streaked-headed Woodcreeper');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Cantorchilus modestus', 'Cantorchilus', 4, 'Soterré Chinchirigüí','Chinchirigüí, Plain Wren');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Pheugopedius rutilus', 'Pheugopedius', 5, 'Soterré Carimoteado','Rufous-breated Wren');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Henicorhina leucosticta', 'Henicorhina', 6,'Soterré Selvático Pechiblanco','White-breasted Wood-Wren');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Henicorhina leucophrys', 'Henicorhina', 6,'Soterré Selvático´Pechinegris','Gray-breasted Wood-Wren');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Cyanocompsa cyanoides', 'Cyanocompsa', 7,'Piquigrueso Negro Azulado','Blue-black Grosbeak');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Tityra inquisitor', 'Tityra', 8,'Titira Coroninegra','Black-crowned Tiryra');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Coereba flaveola', 'Coereba', 9,'Pinchaflor, Reinita Mielera','Coereba flaveola bananaquit');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Piprites griseiceps', 'Piprites', 10,'Saltarín Cabecigris','Gray-headed Piprites');
+INSERT INTO `wingwatch`.`catalogo_especie` (`DESCRIPCION`, `NOMBRE_GENERO`, `catalogo_genero_ID`,`NOMBRE_COMUN`,`NOMBRE_INGLES`)
+ VALUES ('Incertae Sedis', 'Incertae Sedis', 11,'Incertae Sedis','Incertae Sedis');
 
 INSERT INTO `wingwatch`.`catalogo_color` (`DESCRIPCION`) VALUES ('Café');
 INSERT INTO `wingwatch`.`catalogo_color` (`DESCRIPCION`) VALUES ('Gris');

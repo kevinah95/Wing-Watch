@@ -3,6 +3,7 @@ app.controller('registerBirdCtrl', function($scope, $http) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
     $scope.eggAmount = 0;
+    $scope.eggAmount2 = 0;
     $scope.photoAlbum = [];
     var handleFileSelect = function(evt) {
         var file = evt.currentTarget.files[0];
@@ -36,10 +37,33 @@ app.controller('registerBirdCtrl', function($scope, $http) {
             $scope.eggAmount -= 1;
         }
     }
+    $scope.subtractEgg2 = function() {
+        if($scope.eggAmount2 != 0) {
+            $scope.eggAmount2 -= 1;
+        }
+    }
 
     $scope.eliminarImagen = function(pImage) {
         var deleteIndex = $scope.photoAlbum.indexOf(pImage);
         $scope.photoAlbum.splice(deleteIndex, 1);
+    }
+    $scope.registrarAve = function(){
+    //$scope.insertarAve = {};
+    var $form = $('.registro.form'),
+    allFields = $form.form('get values');
+    allFields.cantHuevosMin = $scope.eggAmount;
+    allFields.cantHuevosMax = $scope.eggAmount;
+    console.log(allFields);
+    console.log(allFields.color.length);
+    console.log(allFields.zona.length);
+    console.log(allFields.pico.length);
+    //$scope.insertarAve.idPersona = $SessionStoragge.user.ID;
+    //$scope.insertarAve.cedula = $SessionStorage.user.cedula;
+
+    //$http.post('php/registrarAve.php', $scope.insertarAve).success(function(message) {
+    //console.log(message.data);
+    //$scope.pajaroActual = message.data;    
+  //})
     }
 });
 
@@ -55,91 +79,14 @@ window.onload = function () {
     $('.ui.accordion .ui.checkbox').checkbox();
     $('.ui.form.registro')
     .form({
-        orden: {
-            identifier: 'orden',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese un orden'
-            }]
-        },
-        geoZone: {
-            identifier: 'geoZone',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese una zona geográfica'
-            }]
-        },
-        nomComun: {
-            identifier: 'nomComun',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese un nombre común'
-            }]
-        },
-        nomIngles: {
-            identifier: 'nomIngles',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese un nombre en inglés'
-            }]
-        },
-        suborden: {
-            identifier: 'suborden',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese un suborden'
-            }]
-        },
-        familia: {
-            identifier: 'familia',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese una familia'
-            }]
-        },
-        especie: {
-            identifier: 'especie',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese una especie'
-            }]
-        },
-        genero: {
-            identifier: 'genero',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, ingrese un género'
-            }]
-        },
-        pico: {
-            identifier: 'pico',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, seleccione un tipo de pico'
-            }]
-        },
-        tamanio: {
-            identifier: 'tamanio',
-            rules: [{
-                type: 'empty',
-                prompt: 'Por favor, seleccione un tamaño'
-            }]
-        },
-        color: {
-            identifier: 'color',
-            rules: [{
-                type: 'checked',
-                prompt: 'Seleccione al menos un color'
-            }]
-        }
-
     }, {
         keyboardShortcuts: false,
         inline: true,
-        on: 'submit',
+        on: 'blur',
         transition: 'fade down'
     });
 }
+
 
 window.onhashchange = function() {
     history.go(0);
