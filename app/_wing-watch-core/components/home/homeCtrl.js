@@ -14,21 +14,18 @@ app.controller('homeCtrl', function($scope, $http, $location) {
 
 
         $('.dropdown.config').popup({
-            inverted: true,
             position: 'bottom left',
             title   : 'Configuración',
             content : 'Haga cambios en la configuración o vea la documentación'
             });
 
         $('.dropdown.newBird').popup({
-            inverted: true,
             position: 'bottom left',
             title   : 'Cambiar ave',
             content : 'Reinicia el modelo tridimensional'
             });
 
         $('.dropdown.login').popup({
-            inverted: true,
             position: 'bottom left',
             title   : 'Inicie o cierre sesión',
             content : 'Le enviará a la página de inicio de sesión'
