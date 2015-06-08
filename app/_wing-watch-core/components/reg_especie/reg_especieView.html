@@ -1,0 +1,160 @@
+<div class="ui two column centered grid" ng-init="cargarEspecies()">
+    <div class="column">
+        <form class="ui form segment">
+            <h3>Agregar nueva especie</h3>
+            <div class="ui blue segment" ng-class="{disabled: dis_especie}" ng-init="dis_especie = false">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Especie Nueva</label>
+                        <input ng-disabled="dis_especie" placeholder="Especie" name="especie" type="text" ng-model="especie">
+                    </div>
+                    <div class="field">
+                        <label>Especies Almacenadas</label>
+                        <dropdown ng-class="{disabled: dis_especie}" title="Seleccione la especie" ng-model="especie">
+                            <dropdown-group value="c.ID_ESPECIE" title="c.ESPECIE" ng-repeat="c in catalogoEspecies">{{c.ESPECIE}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_especie}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_especie','dis_genero',especie); continuarEspecie();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui orange segment" ng-class="{disabled: dis_genero}" ng-init="dis_genero = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Género Nuevo</label>
+                        <input ng-disabled="dis_genero" placeholder="Género" name="genero" type="text" ng-model="genero">
+                    </div>
+                    <div class="field">
+                        <label>Géneros Almacenados</label>
+                        <dropdown ng-class="{disabled: dis_genero}" title="Seleccione el género" ng-model="genero">
+                            <dropdown-group value="c.ID_GENERO" title="c.GENERO" ng-repeat="c in catalogoGenero">{{c.GENERO}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_genero}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_genero','dis_familia',genero); continuarGenero();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui green segment" ng-class="{disabled: dis_familia}" ng-init="dis_familia = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Familia Nueva</label>
+                        <input ng-disabled="dis_familia" placeholder="Familia" name="familia" type="text" ng-model="familia">
+                    </div>
+                    <div class="field">
+                        <label>Familias Almacenadas</label>
+                        <dropdown ng-class="{disabled: dis_familia}" title="Seleccione la familia" ng-model="familia">
+                            <dropdown-group value="c.ID_FAMILIA" title="c.FAMILIA" ng-repeat="c in catalogoFamilia">{{c.FAMILIA}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_familia}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_familia','dis_suborden',familia); continuarFamilia();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui red disabled segment" ng-class="{disabled: dis_suborden}" ng-init="dis_suborden = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Suborden Nuevo</label>
+                        <input ng-disabled="dis_suborden" placeholder="Suborden" name="suborden" type="text" ng-model="suborden">
+                    </div>
+                    <div class="field">
+                        <label>Subórdenes Almacenados</label>
+                        <dropdown ng-class="{disabled: dis_suborden}" title="Seleccione el Suborden" ng-model="suborden">
+                            <dropdown-group value="c.ID_SUBORDEN" title="c.SUBORDEN" ng-repeat="c in catalogoSuborden">{{c.SUBORDEN}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_suborden}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_suborden','dis_orden',suborden); continuarSuborden();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui purple disabled segment" ng-class="{disabled: dis_orden}" ng-init="dis_orden = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Orden Nuevo</label>
+                        <input ng-disabled="dis_orden" placeholder="Orden" name="orden" type="text" ng-model="orden">
+                    </div>
+                    <div class="field">
+                        <label>Ordenes Almacenados</label>
+                        <dropdown ng-class="{disabled: dis_orden}" title="Seleccione el Orden" ng-model="orden">
+                            <dropdown-group value="c.ID_ORDEN" title="c.ORDEN" ng-repeat="c in catalogoOrden">{{c.ORDEN}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_orden}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_orden','dis_pico',orden); continuarOrden();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui teal disabled segment" ng-class="{disabled: dis_pico}" ng-init="dis_pico = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Tipo de Pico Nuevo</label>
+                        <input ng-disabled="dis_pico" placeholder="Pico" name="pico" type="text" ng-model="pico">
+                    </div>
+                    <div class="field">
+                        <label>Tipos de Pico Almacenados</label>
+                        <dropdown ng-class="{disabled: dis_pico}" title="Seleccione el tipo de pico" ng-model="pico">
+                            <dropdown-group value="c.ID_PICO" title="c.PICO" ng-repeat="c in catalogoPico">{{c.PICO}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_pico}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_pico','dis_color',pico); continuarPico();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui blue disabled segment" ng-class="{disabled: dis_color}" ng-init="dis_color = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Color Nuevo</label>
+                        <input ng-disabled="dis_color" placeholder="Color" name="color" type="text" ng-model="color">
+                    </div>
+                    <div class="field">
+                        <label>Colores Almacenados</label>
+                        <dropdown ng-class="{disabled: dis_color}" title="Seleecione el color" ng-model="color">
+                            <dropdown-group value="c.ID_COLOR" title="c.COLOR" ng-repeat="c in catalogoColor">{{c.COLOR}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_color}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_color','dis_zona_vida',color); continuarColor();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui orange disabled segment" ng-class="{disabled: dis_zona_vida}" ng-init="dis_zona_vida = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Zona de Vida Nueva</label>
+                        <input ng-disabled="dis_zona_vida" placeholder="Zona de Vida" name="zona_vida" type="text" ng-model="zona_vida">
+                    </div>
+                    <div class="field">
+                        <label>Zonas de Vida Almacenadas</label>
+                        <dropdown ng-class="{disabled: dis_zona_vida}" title="Seleccione la Zona de Vida" ng-model="zona_vida">
+                            <dropdown-group value="c.ID_ZONA_VIDA" title="c.ZONA_VIDA" ng-repeat="c in catalogoZona">{{c.ZONA_VIDA}}</dropdown-group>
+                        </dropdown>
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_zona_vida}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_zona_vida','otro',zona_vida)">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <div class="ui blue button">Submit</div>
+        </form>
+    </div>
+</div>

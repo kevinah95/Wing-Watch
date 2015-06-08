@@ -149,7 +149,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wingwatch`.`catalogo_cantidad_huevos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_cantidad_huevos` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL,
   `CANTIDAD` INT NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
@@ -508,11 +508,16 @@ DELIMITER $$
 USE `wingwatch`$$
 CREATE DEFINER=`WingWatch`@`localhost` FUNCTION `crearCuenta`(`Correo` TINYTEXT, `Encriptacion` TINYTEXT, `Nombre` TINYTEXT, `P_Apellido` TINYTEXT, `S_Apellido` TINYTEXT, `Contrasenia` TINYTEXT, `Tipo_Usuario` BIT) RETURNS tinytext CHARSET utf8
     DETERMINISTIC
-BEGIN
-	DECLARE EXIT HANDLER FOR 1062 return 'El id ya exite';
-	INSERT into usuarios(usuarios.CORREO,usuarios.ENCRIPTACION,usuarios.NOMBRE,usuarios.P_APELLIDO,usuarios.S_APELLIDO,usuarios.CONTRASENIA,usuarios.TIPO_USUARIO) 
-	values (Correo,Encriptacion,Nombre,P_Apellido,S_Apellido,Contrasenia,Tipo_Usuario);
-	return 'Insertado';
+BEGIN
+
+	DECLARE EXIT HANDLER FOR 1062 return 'El id ya exite';
+
+	INSERT into usuarios(usuarios.CORREO,usuarios.ENCRIPTACION,usuarios.NOMBRE,usuarios.P_APELLIDO,usuarios.S_APELLIDO,usuarios.CONTRASENIA,usuarios.TIPO_USUARIO) 
+
+	values (Correo,Encriptacion,Nombre,P_Apellido,S_Apellido,Contrasenia,Tipo_Usuario);
+
+	return 'Insertado';
+
 END$$
 
 DELIMITER ;
