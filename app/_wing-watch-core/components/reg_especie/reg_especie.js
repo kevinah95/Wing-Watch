@@ -1,4 +1,4 @@
-app.controller('reg_especieCtrl', function($scope, $http) {
+app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.category_model = 'Categoria';
     $scope.especie = '';
     $scope.catetories = [{
@@ -121,6 +121,12 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             $scope.cargarZona();
         };
     };
+
+    $scope.goHome = function() {
+        $location.path('/home');
+    }
+
+
     $scope.cargarZona = function() {
         var $promise = $http.get('_wing-watch-core/components/reg_especie/funciones_php/select_zona_vida.php');
         $promise.then(function(msg) {
@@ -128,4 +134,4 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             // console.log($scope.catalogoOrden);
         });
     };
-});
+}]);

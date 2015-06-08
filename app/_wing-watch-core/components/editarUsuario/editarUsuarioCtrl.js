@@ -77,7 +77,9 @@ app.controller('editarUsuarioCtrl', function($scope, $http, $location) {
 
     };
 
-
+    $scope.goHome = function() {
+        $location.path('/home');
+    }
 
     $scope.actualizarStorage = function(apodo) {
         var user = {};

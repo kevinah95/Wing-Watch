@@ -1,5 +1,5 @@
 'use strict';
-app.controller('registerBirdCtrl', function($scope, $http) {
+app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
     $scope.eggAmount = 0;
@@ -141,6 +141,10 @@ app.controller('registerBirdCtrl', function($scope, $http) {
         console.log($scope.picos[value]);
     }
 
+    $scope.goHome = function() {
+        $location.path('/home');
+    }
+
     $scope.activar = function() {
         $scope.estaApretado = true;
     }
@@ -148,7 +152,7 @@ app.controller('registerBirdCtrl', function($scope, $http) {
     $scope.desActivar = function() {
         $scope.estaApretado = false;
     }
-});
+}]);
 
 window.onload = function () {
     //$('.test.radio.checkbox').checkbox();
