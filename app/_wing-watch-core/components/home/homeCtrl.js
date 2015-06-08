@@ -13,8 +13,18 @@ app.controller('homeCtrl', function($scope, $http, $location) {
         return (logeado === null || logeado === "null") ? false : true;
     };
     
+    if (!$scope.islogged()){
+        swal({title: "No ha iniciado sesión", text: "Será redirigido al log in", type:"error"}, 
+            function(){
+                $scope.$apply($location.path('/login'));
+            });
+    }
+    else {
+        $scope.usuarioInfo = JSON.parse(sessionStorage.user);     
+    }
+
     window.onload = function(){
-         if (!$scope.islogged()){
+        if (!$scope.islogged()){
             swal({title: "No ha iniciado sesión", text: "Será redirigido al log in", type:"error"}, 
                 function(){
                     $scope.$apply($location.path('/login'));
@@ -23,7 +33,7 @@ app.controller('homeCtrl', function($scope, $http, $location) {
         else {
             $scope.usuarioInfo = JSON.parse(sessionStorage.user);     
         }
-        
+            
         $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle');
         $('.dropdown').dropdown({transition: 'drop'});
 
