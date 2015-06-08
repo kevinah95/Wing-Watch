@@ -39,8 +39,11 @@ app.controller('registerBirdCtrl', function($scope, $http) {
     }
     $scope.subtractEgg2 = function() {
         if($scope.eggAmount2 != 0) {
-            $scope.eggAmount2 -= 1;
+            $scope.eggAmount2 -= 1;}
+        if ($scope.eggAmount2<$scope.eggAmount){
+            $scope.eggAmount-=1;
         }
+        
     }
 
     $scope.eliminarImagen = function(pImage) {
