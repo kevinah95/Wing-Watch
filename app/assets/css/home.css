@@ -29,12 +29,8 @@ body {
     right: 1%;
 }
 
-/*.aparecer {
+.asd {
     position: absolute;
-    width: 480px;
-    z-index: 9999;
-    border-radius: 10px;
-    background-color: #D5D6D8;
-    display: none;
-}*/
-
+    bottom: 5%;
+    left: 1%;
+}

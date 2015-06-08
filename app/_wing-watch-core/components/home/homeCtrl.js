@@ -41,18 +41,21 @@ app.controller('homeCtrl', function($scope, $http, $location) {
         $('.dropdown.config').popup({
             position: 'bottom left',
             title   : 'Configuración',
+            target   : '.ui.icon.asd',
             content : 'Haga cambios en la configuración o vea la documentación'
             });
 
         $('.dropdown.newBird').popup({
             position: 'bottom left',
             title   : 'Cambiar ave',
+            target   : '.ui.icon.asd',
             content : 'Reinicia el modelo tridimensional'
             });
 
         $('.dropdown.login').popup({
             position: 'bottom left',
-            title   : 'Inicie o cierre sesión',
+            title   : 'Cerrar sesión',
+            target   : '.ui.icon.asd',
             content : 'Le enviará a la página de inicio de sesión'
             });
 
