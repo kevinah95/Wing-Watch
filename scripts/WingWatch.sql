@@ -149,7 +149,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wingwatch`.`catalogo_cantidad_huevos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_cantidad_huevos` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL,
   `CANTIDAD` INT NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
@@ -248,7 +248,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wingwatch`.`catalogo_cantidad_huevos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wingwatch`.`catalogo_cantidad_huevos` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL,
   `CANTIDAD` INT NOT NULL,
   `USUARIO_CREACION` VARCHAR(255) NOT NULL,
   `USUARIO_MODIFICACION` VARCHAR(255) NOT NULL,
@@ -382,6 +382,10 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`fotos` (
   `nombre_foto` VARCHAR(255) NULL,
   `url` LONGTEXT NULL,
   `pajaro_x_persona_ID` INT NOT NULL,
+  `USUARIO_CREACION` VARCHAR(255) NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NULL,
+  `FECHA_CREACION` DATE NULL,
+  `FECHA_MODIFICACION` DATE NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_fotos_pajaro_x_persona1_idx` (`pajaro_x_persona_ID` ASC),
   CONSTRAINT `fk_fotos_pajaro_x_persona1`
@@ -496,6 +500,19 @@ CREATE TABLE IF NOT EXISTS `wingwatch`.`email` (
   `FECHA_CREACION` DATE NOT NULL,
   `FECHA_MODIFICACION` DATE NOT NULL,
   PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wingwatch`.`bitacora_passwords`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wingwatch`.`bitacora_passwords` (
+  `OLD_PASS` VARCHAR(255) NULL,
+  `NEW_PASS` VARCHAR(255) NULL,
+  `USUARIO_CREACION` VARCHAR(255) NULL,
+  `USUARIO_MODIFICACION` VARCHAR(255) NULL,
+  `FECHA_CREACION` DATE NULL,
+  `FECHA_MODIFICACION` DATE NULL)
 ENGINE = InnoDB;
 
 USE `wingwatch` ;

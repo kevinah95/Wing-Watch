@@ -7,10 +7,27 @@
 	    exit();
 	} 
 
-    $sql ="SELECT insertar_usuario($nuevaAve->idPersona, $nuevaAve->cedula, $nuevaAve->idEspecie)";
-    $result = $connection->query($sql);
+    
 
-    echo($result);
+    $Id_Usuario = $nuevaAve->Id_Usuario;
+    $cedula = $nuevaAve->cedula;
+    $especie=$nuevaAve->especie;
+    $cantHuevosMin= $nuevaAve->cantHuevosMin;
+    $cantHuevosMax = $nuevaAve->cantHuevosMax;
+    $colorA=$nuevaAve->colorA;
+    $pico=$nuevaAve->pico;
+    $zona=$nuevaAve->zona;
+
+    $stmt = $connection->prepare("SELECT insertar_ave(?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('iiiiiiii', $Id_Usuario, $cedula, $especie, $cantHuevosMin, $cantHuevosMax, $colorA, $pico, $zona);
+
+    $stmt->execute();
+
+    $stmt->bind_result($nick);
+    $stmt->fetch();
+    echo $nick;
+    
+    $stmt->close();
 
     //echo("Insertado");
     $connection->close();
