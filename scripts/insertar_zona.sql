@@ -1,11 +1,11 @@
 DELIMITER //
-CREATE PROCEDURE `insertar_zona`(IN `ID_PERSONA` INT, IN `ID_ZONA` INT)
+CREATE DEFINER=`WingWatch`@`localhost` PROCEDURE `insertar_zona`(IN `ID_PAJARO` INT, IN `ID_ZONA` INT)
 	LANGUAGE SQL
 	NOT DETERMINISTIC
 	CONTAINS SQL
 	SQL SECURITY DEFINER
 	COMMENT ''
 BEGIN
-	INSERT INTO ZONAS_X_PAJARO (pajaro_x_persona_ID, catalogo_zona_de_vida_ID) values (`ID_PAJARO`,`ID_ZONA`);
+	INSERT INTO ZONAS_X_PAJARO (pajaro_x_persona_ID, catalogo_zona_vida_ID) values (`ID_PAJARO`,`ID_ZONA`);
 	commit;
 END //

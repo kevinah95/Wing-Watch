@@ -1,4 +1,5 @@
 <title>Registrar Álbum</title>
+<div id="mainWrap" class="container" ng-controller="registerBirdCtrl">
 <div class="ui two column centered padded grid">
     <div class="column">
         <div class="ui bottom attached segment">
@@ -15,154 +16,87 @@
                 <!-- Información Taxonómica -->
                 <h4 class="ui header">Información taxonómica  <i class="help circle icon"></i></h4>
                 
-                <div class="field">
+                <div class="field" ng-init="cargarEspecies()">
                   <label>Especie</label>
                   <div class="ui dropdown selection">
                     <input type="hidden" name="especie">
-                    <div class="default text">Seleccione una especie</div>
+                    <div class="default text">{{especieSeleccionada}}</div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                      <div class="item" data-value="Especie 1">Especie 1</div>
-                      <div class="item" data-value="Especie 2">Especie 2</div>
+                      <div class="item" ng-repeat="especie in especies" ng-click="setearEspecie(especie.ID_ESPECIE,especie.ESPECIE,especie.NOMBRE_COMUN,especie.NOMBRE_INGLES,especie.GENERO,especie.FAMILIA,especie.SUBORDEN,especie.ORDEN,especie.CLASE)">{{especie.ESPECIE}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="ui divided selection list">
                       <a class="item">
                         <div class="ui purple horizontal label">Nombre Común</div>
-                        Nombre Común
+                        {{nombreComunSeleccionada}}
                       </a>
                       <a class="item">
                         <div class="ui purple horizontal label">Nombre en Inglés</div>
-                        Nombre en Inglés
+                        {{nombreInglesSeleccionada}}
                       </a>
                       <a class="item">
-                        <div class="ui purple horizontal label">Clase</div>
-                        Clase
+                        <div class="ui teal horizontal label">Clase</div>
+                        {{claseSeleccionada}}
                       </a>
                       <a class="item">
                         <div class="ui teal horizontal label">Orden</div>
-                        Orden
+                        {{ordenSeleccionada}}
                       </a>
                       <a class="item">
                         <div class="ui teal horizontal label">Suborden</div>
-                        Suborden
+                        {{subordenSeleccionada}}
                       </a>
                       <a class="item">
                         <div class="ui teal horizontal label">Familia</div>
-                        Familia
+                        {{familiaSeleccionada}}
                       </a>
                       <a class="item">
                         <div class="ui teal horizontal label">Género</div>
-                        Género
+                        {{generoSeleccionada}}
                       </a>
                       <a class="item">
-                        <div class="ui teal horizontal label">Nombre Científico</div>
-                        Especie
+                        <div class="ui teal horizontal label">Especie</div>
+                        {{especieSeleccionada}}
                       </a>
                     </div>
 
                 <!-- Información general -->
                 <h4 class="ui header">Aspecto - Comportamiento - Zona de Vida</h4>
-                <div class="field">
-                    <label>Zona geográfica o de vida</label>
-                    <div class="ui styled accordion">
-                        <div class="title">
-                            <i class="dropdown icon"></i>
-                            Zona de Vida
-                        </div>
-                        <div class="content">
-                            <div class="ui form">
-                                <div class="grouped fields">
-                                    <div class="field">
-                                      <div class="ui checkbox">
-                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
-                                        <label>Bosque Nuboso</label>
-                                      </div>
-                                    </div>
-                                    <div class="field">
-                                      <div class="ui checkbox">
-                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
-                                        <label>Bosque seco</label>
-                                      </div>
-                                    </div>
-                                    <div class="field">
-                                      <div class="ui checkbox">
-                                        <input type="checkbox" name="zona[]" value="Bosque Nuboso">
-                                        <label>Bosque Húmedo</label>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="field" ng-init="cargarZonas()">
+                  <label>Zona de Vida</label>
+                  <div class="ui dropdown selection">
+                    <input type="hidden" name="zona">
+                    <div class="default text">{{zonaSeleccionado}}</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" ng-repeat="zona in zonas" ng-click="setearZona(zona.ID_ZONA)">{{zona.DESCRIPCION}}</div>
                     </div>
+                  </div>
                 </div>
                 <div class="two fields">
-                    <div class="field">
-                        <label>Color</label>
-                        <div class="ui styled accordion">
-                            <div class="title">
-                                <i class="dropdown icon"></i>
-                                Color
-                            </div>
-                            <div class="content">
-                                <div class="ui form">
-                                    <div class="grouped fields">
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color[]" value="Rojo">
-                                            <label>Rojo</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color[]" value="Amarillo">
-                                            <label>Amarillo</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="color[]" value="Blanco">
-                                            <label>Blanco</label>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="field" ng-init="cargarColores()">
+                      <label>Colores</label>
+                      <div class="ui dropdown selection">
+                        <input type="hidden" name="color">
+                        <div class="default text">{{colorSeleccionado}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                          <div class="item" ng-repeat="color in colores" ng-click="setearColor(color.ID_COLOR)">{{color.DESCRIPCION}}</div>
                         </div>
+                      </div>
                     </div>
-                    <div class="field">
-                        <label>Tipo de Pico</label>
-                        <div class="ui styled accordion">
-                            <div class="title">
-                                <i class="dropdown icon"></i>
-                                Tipo de Pico
-                            </div>
-                            <div class="content">
-                                <div class="ui form">
-                                    <div class="grouped fields">
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="pico[]" value="Corto">
-                                            <label>Corto</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="pico[]" value="Largo">
-                                            <label>Largo</label>
-                                          </div>
-                                        </div>
-                                        <div class="field">
-                                          <div class="ui checkbox">
-                                            <input type="checkbox" name="pico[]" value="Grueso">
-                                            <label>Grueso</label>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="field" ng-init="cargarPicos()">
+                      <label>Tipos de Pico</label>
+                      <div class="ui dropdown selection">
+                        <input type="hidden" name="pico">
+                        <div class="default text">{{picoSeleccionado}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                          <div class="item" ng-repeat="pico in picos" ng-click="setearPico(pico.ID_PICO)">{{pico.DESCRIPCION}}</div>
                         </div>
+                      </div>
                     </div>
                 </div>
                 <div class="two fields">
@@ -257,4 +191,5 @@
             <i class="checkmark icon"></i>
         </div>
     </div>
+</div>
 </div>
