@@ -7,8 +7,23 @@ app.controller('homeCtrl', function($scope, $http, $location) {
             "assets/models/duck.json",  "assets/models/crow.json",  "assets/models/eagle2.json",
             /*"assets/models/penguin.json"*/
         ];
-           $scope.usuarioInfo = JSON.parse(sessionStorage.user); 
+
+    $scope.islogged= function(){
+        var logeado = sessionStorage.getItem("islogged"); 
+        return (logeado === null || logeado === "null") ? false : true;
+    };
+    
     window.onload = function(){
+         if (!$scope.islogged()){
+            swal({title: "No ha iniciado sesión", text: "Será redirigido al log in", type:"error"}, 
+                function(){
+                    $scope.$apply($location.path('/login'));
+                });
+        }
+        else {
+            $scope.usuarioInfo = JSON.parse(sessionStorage.user);     
+        }
+        
         $('.ui.sidebar').sidebar('attach events', '.uiside', 'toggle');
         $('.dropdown').dropdown({transition: 'drop'});
 
@@ -36,10 +51,8 @@ app.controller('homeCtrl', function($scope, $http, $location) {
     }
 
     $scope.abrirEditarPerfil = function() {
-        console.log('entra');
         $location.path('/editarUsuario');
-        
-    }
+    };
     
     function loadThreeJSModel() {
         document.getElementById("TJS").innerHTML = "";
@@ -105,14 +118,13 @@ app.controller('homeCtrl', function($scope, $http, $location) {
     }
 
     $scope.login = function(){
+        sessionStorage.removeItem('user');
+        sessionStorage.removeItem('islogged');
         $location.path('/login');
         history.go(0);
     }
 
     window.onhashchange = function(){
         history.go(0);
-    }
-
-
-    
+    }    
 });
