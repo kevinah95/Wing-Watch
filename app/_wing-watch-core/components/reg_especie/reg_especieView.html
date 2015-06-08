@@ -10,7 +10,7 @@
                     </div>
                     <div class="field">
                         <label>Especies Almacenadas</label>
-                        <dropdown ng-class="{disabled: dis_especie}" title="Seleccione la especie" ng-model="especie">
+                        <dropdown ng-class="{disabled: dis_especie}" title="Seleccione la especie" ng-model="especieElegida">
                             <dropdown-group value="c.ID_ESPECIE" title="c.ESPECIE" ng-repeat="c in catalogoEspecies">{{c.ESPECIE}}</dropdown-group>
                         </dropdown>
                     </div>
