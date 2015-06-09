@@ -1,8 +1,12 @@
     <!-- Color Bars (above header)-->
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
-    
-    <div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
+    <div class="encima">
+        <div class="ui circular icon button" ng-click="goHome()">
+            <i class="big home icon"></i>
+        </div>    
+    </div>
+    <div class="container" ng-controller="gallerySimpleCtrl"  style="padding-left: 2%" >
       <div class="ui grid"><!-- Begin Header -->
         <!-- Logo -->
         <div class="one wide column"></div>
@@ -18,8 +22,8 @@
           <div class="column">
               <img class="ui image" src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg">
           </div>
-          <div class="column">
-            <h2>ESPECIE DE AVE</h2>
+          <div class="column" ng-init="iniciarDatos()">
+            <h2>{{taxonomia.ESPECIE}}</h2>
             <p class="lead">Descripción general brindada por el aficionado que capturó la fotografía</p>
             <ul class="project-info">
                 <li><h4>Nombre Común:</h4> Nombre</li>
