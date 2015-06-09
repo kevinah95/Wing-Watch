@@ -7,8 +7,8 @@
 	    exit();
 	}
 
-    $query = "SELECT DISTINCT pajaro_x_persona.ID, usuario.NICKNAME, fotos.url, catalogo_especie.DESCRIPCION AS ESPECIE,
-     catalogo_especie.ID, catalogo_especie.NOMBRE_COMUN, 
+    $query = "SELECT DISTINCT pajaro_x_persona.ID AS ID_PAJARO, usuario.NICKNAME, fotos.url, catalogo_especie.DESCRIPCION AS ESPECIE,
+     catalogo_especie.ID AS ID_ESPECIE, catalogo_especie.NOMBRE_COMUN, 
          catalogo_especie.NOMBRE_INGLES,G.DESCRIPCION AS GENERO,F.DESCRIPCION AS FAMILIA,
          S.DESCRIPCION AS SUBORDEN,O.DESCRIPCION AS ORDEN,C.DESCRIPCION AS CLASE, catalogo_color.DESCRIPCION AS COLOR, catalogo_zona_vida.DESCRIPCION AS ZONA, catalogo_tipo_pico.DESCRIPCION AS PICO
                 FROM pajaro_x_persona
@@ -47,6 +47,8 @@
         $outp .= '"COLOR":"'   . $row["COLOR"]        . '",';
         $outp .= '"ZONA":"'   . $row["ZONA"]        . '",';
         $outp .= '"PICO":"'   . $row["PICO"]        . '",';
+        $outp .= '"ID_ESPECIE":"'   . $row["ID_ESPECIE"]        . '",';
+        $outp .= '"ID_PAJARO":"'   . $row["ID_PAJARO"]        . '",';
         $outp .= '"DESCRIPCION":"'   . $row["ESPECIE"]. '"}';
        // $rows[] = $row;
 	}

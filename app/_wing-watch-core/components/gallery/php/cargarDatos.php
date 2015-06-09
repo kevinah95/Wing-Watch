@@ -7,7 +7,7 @@
 	    printf("Connect failed: %s\n", mysqli_connect_error());
 	    exit();
 	}
-    $var = $entrada->ID;
+    $var = $entrada->ID_ESPECIE;
 
     // query the database 
 

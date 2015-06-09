@@ -10,7 +10,7 @@
     // query the database 
 
     $query = "SELECT C.ID,C.DESCRIPCION FROM CATALOGO_ZONA_VIDA C JOIN ZONAS_X_PAJARO N ON N.CATALOGO_ZONA_VIDA_ID = C.ID 
-                JOIN PAJARO_X_PERSONA P ON P.ID = N.PAJARO_X_PERSONA_ID WHERE P.ID = $entrada->ID";
+                JOIN PAJARO_X_PERSONA P ON P.ID = N.PAJARO_X_PERSONA_ID WHERE P.ID = $entrada->ID_PAJARO";
     $result = $mysqli->query($query);
     // fetch the result / convert resulte in to array 
     $outp = "[";
