@@ -9,7 +9,7 @@
 
     // query the database 
 
-    $query = "SELECT URL FROM FOTOS WHERE PAJARO_X_PERSONA_ID = $entrada->ID";
+    $query = "SELECT ID,URL FROM FOTOS WHERE PAJARO_X_PERSONA_ID = $entrada->ID";
     $result = $mysqli->query($query);
     // fetch the result / convert resulte in to array 
     $outp = "[";
