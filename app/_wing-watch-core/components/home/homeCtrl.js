@@ -190,7 +190,12 @@ app.controller('homeCtrl', function($scope, $http, $location) {
     }
 
     $scope.migration = function(){
-        swal({title: "No es posible migrar aún", text: "Esta funcionalidad aún está en construcción", type:"error"}) 
+        swal({title: "No es posible migrar aún", 
+            text: "Esta funcionalidad aún está en construcción, sin embargo es posible exportar", 
+            type:"error"},function(){
+                $scope.$apply($location.path('/migracion'));
+            });
+
     }
 
     window.onhashchange = function(){

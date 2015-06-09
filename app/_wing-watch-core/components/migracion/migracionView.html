@@ -1,0 +1,18 @@
+<div class="ui two column centered grid" ng-init="iniciar()">
+    <div class="encima">
+        <div class="ui circular icon button" ng-click="goHome()">
+            <i class="big home icon"></i>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui segment">
+        <div ng-repeat="tabla in tablas">
+            <div class="fluid ui button" ng-click="exportar(tabla)">{{tabla}}</div>
+        </div>
+            
+            
+            
+
+        </div>
+    </div>
+</div>

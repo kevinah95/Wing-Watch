@@ -8,6 +8,6 @@ app.config(['$routeProvider', function($routeProvider) {
   	$routeProvider.when('/reg_especie', {templateUrl: '_wing-watch-core/components/reg_especie/reg_especieView.html', controller:'reg_especieCtrl', css: ['assets/css/Reg_Especies.css']});
   	$routeProvider.when('/birds', {templateUrl: '_wing-watch-core/components/gallery/galleryView.htm', controller:'galleryCtrl', css: ['assets/css/gallery.css', 'assets/css/flexslider.css'] });
     $routeProvider.when('/sbird', {templateUrl: '_wing-watch-core/components/gallery/gallery-single.htm', controller:'gallerySimpleCtrl',  css: ['assets/css/gallery.css', 'assets/css/flexslider.css']});
-    
+    $routeProvider.when('/migracion', {templateUrl: '_wing-watch-core/components/migracion/migracionView.html', controller:'migracionCtrl',  css: ['assets/css/migracion.css']});
   	$routeProvider.otherwise({redirectTo: '/login'});
 }]);
