@@ -1,5 +1,6 @@
 app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.especie = '';
+    $scope.disInsertar = true;
     $scope.deshabilitar = function(deshabilitador, habilitador, isVacio) {
         if (isVacio.length != 0) {
             $scope[deshabilitador] = true;
@@ -46,8 +47,12 @@ app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($sco
             var index = $scope.catalogoGenero.map(function(d) {
                 return d['GENERO'];
             }).indexOf($scope.genero);
+            if (index === -1) {
+
+            }else{
+                $scope.genero = $scope.catalogoGenero[index];    
+            }
             
-            $scope.genero = $scope.catalogoGenero[index];
             // console.log($scope.genero);
             $scope.FK_FAMILIA = $scope.catalogoGenero[index].FK_FAMILIA;
             $scope.cargarFamilia();
@@ -141,6 +146,17 @@ app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($sco
             // console.log($scope.catalogoOrden);
         });
     };
+    // $scope.continuarZona = function() {
+    //     if ($scope.zona_vida.length != 0) {
+    //         $scope.disInsertar = false;        
+    //     };
+    // };
+    $scope.continuarNombres = function() {
+        
+            $scope.disInsertar = false;        
+        
+    };
+    
     $scope.insertarEspecie = function(){
         var $form = $('.form.especie'),
             allFields = $form.form('get values');
@@ -149,6 +165,21 @@ app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($sco
         allFields.orden = $scope.orden;
         allFields.suborden = $scope.suborden;
         console.log(allFields);
+        var $promise = $http.post('_wing-watch-core/components/reg_especie/funciones_php/insert_livianos.php',allFields);
+        $promise.then(function(msg) {
+            // $scope.catalogoZona = msg.data;
+            console.log(msg.data);
+        });
+
+        var $promise = $http.post('_wing-watch-core/components/reg_especie/funciones_php/insert_newEspecie.php',allFields);
+        $promise.then(function(msg) {
+            // $scope.catalogoZona = msg.data;
+            console.log(msg.data);
+            swal({   title: "Nueva Especie Registrada",   text: "La especie fue ingresada correctamente", type: "success",   showConfirmButton: false });
+            setInterval(function () {}, 2000);
+            $location.path('/home');
+        });
+        
 
     };
 }]);

@@ -155,12 +155,31 @@
                     </div>
                 </div>
                 <div class="field">
-                    <div ng-class="{disabled: dis_zona_vida}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_zona_vida','otro',zona_vida)">
+                    <div ng-class="{disabled: dis_zona_vida}" class="ui right labeled icon small button" ng-click="deshabilitar('dis_zona_vida','dis_nombres',zona_vida);">
                         <i class="right arrow icon"></i> Continuar
                     </div>
                 </div>
             </div>
-            <div class="ui blue button" ng-click="insertarEspecie()">Registrar Nueva Especie</div>
+            <!-- Nombre-comun-ingles -->
+            <div class="ui orange disabled segment" ng-class="{disabled: dis_nombres}" ng-init="dis_nombres = true">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Nombre Común</label>
+                        <input ng-disabled="dis_nombres" placeholder="Nombre Común" name="nombre_comun" type="text" ng-model="nombre_comun">
+                    </div>
+                    <div class="field">
+                        <label>Nombre en Inglés</label>
+                        <input ng-disabled="dis_nombres" placeholder="Nombre en Ingles" name="nombre_ingles" type="text" ng-model="nombre_ingles">
+                    </div>
+                </div>
+                <div class="field">
+                    <div ng-class="{disabled: dis_nombres}" class="ui right labeled icon small button" ng-click="continuarNombres();">
+                        <i class="right arrow icon"></i> Continuar
+                    </div>
+                </div>
+            </div>
+            <!-- Submit -->
+            <div class="ui blue button" ng-class="{disabled: disInsertar}" ng-click="insertarEspecie()">Registrar Nueva Especie</div>
         </form>
     </div>
 </div>
