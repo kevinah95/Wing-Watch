@@ -6,7 +6,6 @@
 <!-- Color Bars (above header)-->
 <div class="color-bar-1"></div>
 <div class="color-bar-2 color-bg"></div>
-
 <div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
   <div class="ui grid"><!-- Begin Header -->
   <!-- Logo-->
@@ -34,21 +33,91 @@
   </div>
   </div> <!-- End Headline -->
   <div class="ui segment">
-      <div class="ui six special cards">
-        <div class="ui card" ng-repeat="post in posts" ng-click="sessionBird(post)">
-          <a ng-href="#/sbird" class="image">
-            <img ng-src="{{post.URL}}">
-          </a>
-          <div class="content">
-            <a class="header">{{post.DESCRIPCION}}</a>
-            <div class="meta">
-              <span class="date">{{post.NICKNAME}}</span>
-            </div>
-          </div>
-          <div class="extra content">
-            <a> <i class="checkmark box icon"></i> Checkeado </a>
+    <div class="ui grid">
+        <div class="two wide column">
+          <label>Genero</label>
+          <div class="ui input">
+            <input type="text" placeholder="Genero" ng-model="filtro.GENERO">
           </div>
         </div>
-      </div>
+        <div class="two wide column">
+          <label>Especie</label>
+          <div class="ui input">
+            <input type="text" placeholder="Especie" ng-model="filtro.DESCRIPCION">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Sub Orden</label>
+          <div class="ui input">
+            <input type="text" placeholder="Sub Orden" ng-model="filtro.SUBORDEN">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Orden</label>
+          <div class="ui input">
+            <input type="text" placeholder="Orden" ng-model="filtro.ORDEN">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Familia</label>
+          <div class="ui input">
+            <input type="text" placeholder="Familia" ng-model="filtro.FAMILIA">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Nombre Comun</label>
+          <div class="ui input">
+            <input type="text" placeholder="Nombre Comun" ng-model="filtro.NOMBRE_COMUN">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Nombre Inglés</label>
+          <div class="ui input">
+            <input type="text" placeholder="Nombre Inglés" ng-model="filtro.NOMBRE_INGLES">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Color</label>
+          <div class="ui input">
+            <input type="text" placeholder="Color" ng-model="filtro.COLOR">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Zona de Vida</label>
+          <div class="ui input">
+            <input type="text" placeholder="Zona de Vida" ng-model="filtro.ZONA">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Tipo de Pico</label>
+          <div class="ui input">
+            <input type="text" placeholder="Tipo de Pico" ng-model="filtro.PICO">
+          </div>
+        </div>
+        <div class="two wide column">
+          <label>Apodo</label>
+          <div class="ui input">
+            <input type="text" placeholder="Apodo" ng-model="filtro.NICKNAME">
+          </div>
+        </div>
+    </div>
   </div>
-</div> <!-- End Container -->
+  <div class="ui segment">
+    <div class="ui six special cards">
+      <div class="ui card" ng-repeat="post in posts | filter:filtro:strict" ng-click="sessionBird(post)">
+        <a ng-href="#/sbird" class="image">
+          <img ng-src="{{post.URL}}">
+        </a>
+        <div class="content">
+          <a class="header">{{post.DESCRIPCION}}</a>
+          <div class="meta">
+            <span class="date">{{post.NICKNAME}}</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a> <i class="checkmark box icon"></i> Checkeado </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> <!-- End Container -->
