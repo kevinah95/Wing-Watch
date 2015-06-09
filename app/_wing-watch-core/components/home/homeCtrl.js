@@ -24,6 +24,7 @@ app.controller('homeCtrl', function($scope, $http, $location) {
     }
 
     window.onload = function(){
+
         if (!$scope.islogged()){
             swal({title: "No ha iniciado sesión", text: "Será redirigido al log in", type:"error"}, 
                 function(){
@@ -57,6 +58,41 @@ app.controller('homeCtrl', function($scope, $http, $location) {
             title   : 'Cerrar sesión',
             target   : '.ui.icon.asd',
             content : 'Le enviará a la página de inicio de sesión'
+            });
+
+        $('.dropdown.migrate').popup({
+            position: 'bottom left',
+            title   : 'Exportar/Importar datos',
+            target   : '.ui.icon.asd',
+            content : 'En construcción'
+            });
+
+        $('.dropdown.users').popup({
+            position: 'bottom left',
+            title   : 'Usuarios',
+            target   : '.ui.icon.asd',
+            content : 'Le llevará a la página de usuarios'
+            });
+
+        $('.dropdown.gallery').popup({
+            position: 'bottom left',
+            title   : 'Galería',
+            target   : '.ui.icon.asd',
+            content : 'Vea las aves que nuestros usuarios han encontrado'
+            });
+
+        $('.dropdown.addBird').popup({
+            position: 'bottom left',
+            title   : 'Nuevo álbum',
+            target   : '.ui.icon.asd',
+            content : '¿Le tomaste foto a un ave? ¡Compártelo!'
+            });
+        
+        $('.dropdown.regNewSpecie').popup({
+            position: 'bottom left',
+            title   : 'Insertar nueva especie',
+            target   : '.ui.icon.asd',
+            content : '¿Viste una especie que no manejamos? ¡Agrégala!'
             });
 
         loadThreeJSModel();
@@ -135,6 +171,26 @@ app.controller('homeCtrl', function($scope, $http, $location) {
         sessionStorage.removeItem('islogged');
         $location.path('/login');
         history.go(0);
+    }
+
+    $scope.users = function(){
+        $scope.$apply($location.path('/users'));
+    }
+
+    $scope.gallery = function(){
+        $scope.$apply($location.path('/birds'));
+    }
+
+    $scope.addBird = function(){
+        $scope.$apply($location.path('/registerBird'));
+    }
+
+    $scope.newSpecie = function(){
+        $scope.$apply($location.path('/reg_especie'));
+    }
+
+    $scope.migration = function(){
+        swal({title: "No es posible migrar aún", text: "Esta funcionalidad aún está en construcción", type:"error"}) 
     }
 
     window.onhashchange = function(){
