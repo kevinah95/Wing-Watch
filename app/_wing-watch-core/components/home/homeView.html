@@ -7,8 +7,26 @@
             {{usuarioInfo.Nombre}}
         </a>
         
-        <div class="item ui dropdown config"> <i class="setting big icon"></i> 
+        <div class="item dropdown users" ng-click="users()">
+            <i class="big icon fa fa-user"></i>
+        </div>
+
+        <div class="item dropdown gallery" ng-click="gallery()">
+            <i class="big icon fa fa-picture-o"></i>
+        </div>
+
+        <div class="item dropdown addBird" ng-click="addBird()">
+            <i class="big icon fa fa-plus-square"></i>
+        </div>
+
+        <div class="item dropdown regNewSpecie" ng-click="newSpecie()">
+            <i class="big icon fa fa-level-up"></i>
+        </div>
+
+        <div class="item ui dropdown config"> <i class="big icon fa fa-cogs"></i> 
             <div class="ui left menu">
+                <div class="header">Documentación </div>
+                <a class="item" href="https://github.com/kevinah95/Wing-Watch/wiki"> Wiki - GitHub</a>
                 <div class="header">Profesora</div>
                 <a class="item" href="https://www.facebook.com/adriana.alvarez.9277"> Adriana Álvarez </a> 
                 <div class="header">Estudiantes </div>
@@ -26,13 +44,18 @@
         <div class="item dropdown newBird" ng-click="transit()">
             <i class="random big icon"> </i>
         </div>
-        
+
         <div class="item dropdown login" ng-click="login()">
             <i class="key big icon"> </i>
         </div>
+
+        <div class="item dropdown migrate" ng-click="migration()">
+            <i class="big icon fa fa-database"></i>
+        </div>
+
     </div>
 
-    <div class="ui icon asd"> <i class="question big icon"> </i></div>
+    <div class="ui icon asd"> <i class="big icon fa fa-info-circle"> </i></div>
 
     <div id="TJS">
         <!-- Acá se carga el modelo -->

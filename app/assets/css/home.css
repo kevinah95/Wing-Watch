@@ -14,7 +14,7 @@ body {
 }
 
 .dropdown:hover .dropdown-menu {
-  display: block;
+    display: block;
 }
 
 .customText {

@@ -1,4 +1,4 @@
-app.controller('reg_especieCtrl', function($scope, $http) {
+app.controller('reg_especieCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.especie = '';
     $scope.deshabilitar = function(deshabilitador, habilitador, isVacio) {
         if (isVacio.length != 0) {
@@ -128,6 +128,12 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             $scope.cargarZona();
         };
     };
+
+    $scope.goHome = function() {
+        $location.path('/home');
+    }
+
+
     $scope.cargarZona = function() {
         var $promise = $http.get('_wing-watch-core/components/reg_especie/funciones_php/select_zona_vida.php');
         $promise.then(function(msg) {
@@ -145,4 +151,4 @@ app.controller('reg_especieCtrl', function($scope, $http) {
         console.log(allFields);
 
     };
-});
+}]);
