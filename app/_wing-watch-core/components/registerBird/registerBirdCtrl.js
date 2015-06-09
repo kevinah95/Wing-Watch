@@ -138,6 +138,10 @@ app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($sc
             $http.post('_wing-watch-core/components/registerBird/php/registrarImagen.php', $scope.imgInsert).success(function(message) {
         console.log(message); })
         }
+        swal({title: "Ave Registrada", text: "Gracias por compartir", type:"success"}, 
+            function(){
+                $scope.$apply($location.path('/home'));
+            });
     }
 
     $scope.goHome = function() {

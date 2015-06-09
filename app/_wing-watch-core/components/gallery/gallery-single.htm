@@ -19,53 +19,29 @@
     <!-- Page Content --> 
     <div class="ui grid">
         <div class="two column row">
-          <div class="column">
-              <img class="ui image" src="http://i.huffpost.com/gen/1352568/images/o-BALD-EAGLE-facebook.jpg">
-          </div>
-          <div class="column" ng-init="iniciarDatos()">
-            <h2>{{taxonomia.ESPECIE}}</h2>
-            <p class="lead">Descripción general brindada por el aficionado que capturó la fotografía</p>
-            <ul class="project-info">
-                <li><h4>Nombre Común:</h4> Nombre</li>
-                <li><h4>Nombre en Inglés:</h4> Nombre</li>
-                <li><h4>Nombre Científico:</h4> Nombre</li>
-                <li><h4>Orden:</h4> Nombre + Descripción</li>
-                <li><h4>Suborden:</h4> Nombre + Descripción</li>
-                <li><h4>Familia:</h4> Nombre + Descripción</li>
-                <li><h4>Género:</h4> Nombre + Descripción</li>
-                <li><h4>Tipo de Pico:</h4> Descripción</li>
-                <li><h4>Cantidad de Huevos:</h4> Descripción</li>
-                <li><h4>Zona de Vida:</h4> Descripción</li>
-                <li><h4>Color:</h4> Descripción</li>
-            </ul>
-            <a href="#" class="ui teal button">Editar Información</a>
-            <a href="galleryView.htm" class="ui red button">Regresar</a>
-          </div>
-        </div>    
-    </div> <!-- End Container -->
-
-    <!-- Footer Area -->
-    <div class="footer-container"><!-- Begin Footer -->
-        <div class="container">
-            <div class="row footer-row">
-                <div class="span3 footer-col">
-                    <ul class="social-icons">
-                        <li><a href="#" class="social-icon facebook"></a></li>
-                        <li><a href="#" class="social-icon twitter"></a></li>
-                        <li><a href="#" class="social-icon dribble"></a></li>
-                        <li><a href="#" class="social-icon rss"></a></li>
-                        <li><a href="#" class="social-icon forrst"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row"><!-- Begin Sub Footer -->
-                <div class="span12 footer-col footer-sub">
-                    <div class="row no-margin">
-                        <div class="span6"><span class="left"></span></div>
+            <div class="column" ng-init="cargarFotos()">
+                <div class="ui grid">
+                    <div class="eight wide column" ng-repeat="foto in fotos">
+                        <img class="ui image" src="{{foto.PIC}}">
                     </div>
                 </div>
-            </div><!-- End Sub Footer -->
-
-        </div>
-    </div><!-- End Footer --> 
+            </div>
+              <div class="column" ng-init="iniciarDatos()">
+                <h2>{{taxonomia.ESPECIE}}</h2>
+                <ul class="project-info">
+                    <li><h4>Nombre Común:</h4>{{taxonomia.NOMBRE_COMUN}}</li>
+                    <li><h4>Nombre en Inglés:</h4>{{taxonomia.NOMBRE_INGLES}}</li>
+                    <li><h4>Nombre Científico:</h4>{{taxonomia.ESPECIE}}</li>
+                    <li><h4>Orden:</h4>{{taxonomia.ORDEN}}</li>
+                    <li><h4>Suborden:</h4>{{taxonomia.SUBORDEN}}</li>
+                    <li><h4>Familia:</h4>{{taxonomia.FAMILIA}}</li>
+                    <li><h4>Género:</h4>{{taxonomia.GENERO}}</li>
+                    <li><h4>Tipo de Pico:</h4>{{pico.PICO}}</li>
+                    <li><h4>Zona de Vida:</h4>{{zona.ZONA}}</li>
+                    <li><h4>Color:</h4>{{color.COLOR}}</li>
+                </ul>
+                <a href="#" class="ui teal button">Editar Información</a>
+                <a href="galleryView.htm" class="ui red button">Regresar</a>
+              </div>
+        </div>  
+    </div> <!-- End Container -->
