@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider) {
   	$routeProvider.when('/users', {templateUrl: '_wing-watch-core/components/users/usersView.html', controller:'usersCtrl', css: ['assets/css/Usuarios.css']});
   	$routeProvider.when('/reg_especie', {templateUrl: '_wing-watch-core/components/reg_especie/reg_especieView.html', controller:'reg_especieCtrl', css: ['assets/css/Reg_Especies.css']});
   	$routeProvider.when('/birds', {templateUrl: '_wing-watch-core/components/gallery/galleryView.htm', controller:'galleryCtrl', css: ['assets/css/gallery.css', 'assets/css/flexslider.css'] });
-    $routeProvider.when('/sbird', {templateUrl: '_wing-watch-core/components/gallery/gallery-single.htm',  css: ['assets/css/gallery.css', 'assets/css/flexslider.css']});
+    $routeProvider.when('/sbird', {templateUrl: '_wing-watch-core/components/gallery/gallery-single.htm', controller:'gallerySCtrl',  css: ['assets/css/gallery.css', 'assets/css/flexslider.css']});
     
   	$routeProvider.otherwise({redirectTo: '/login'});
 }]);
