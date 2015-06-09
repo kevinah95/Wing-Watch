@@ -7,8 +7,6 @@
 	    exit();
 	} 
 
-    
-
     $Id_Usuario = $nuevaAve->Id_Usuario;
     $cedula = $nuevaAve->cedula;
     $especie=$nuevaAve->especie;

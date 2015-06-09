@@ -1,16 +1,20 @@
 <?php
-	//$user = json_decode(file_get_contents('php://input'));
+
     $mysqli = new mysqli("localhost", "WingWatch", "WingWatch", "wingwatch");
 
-	/* check connection */
 	if (mysqli_connect_errno()) {
 	    printf("Connect failed: %s\n", mysqli_connect_error());
 	    exit();
 	}
 
-    // query the database 
-
-    $query = "SELECT * FROM usuario";
+    $query = "SELECT pajaro_x_persona.ID, usuario.NICKNAME, fotos.url, catalogo_especie.DESCRIPCION
+                FROM pajaro_x_persona
+                    JOIN (usuario)
+                        ON (pajaro_x_persona.persona_ID = usuario.persona_ID)
+                    JOIN (fotos)
+                        ON (pajaro_x_persona.ID = fotos.pajaro_x_persona_ID)
+                    JOIN (catalogo_especie)
+                        ON (pajaro_x_persona.catalogo_especie_ID = catalogo_especie.ID)";
     $result = $mysqli->query($query);
     // fetch the result / convert resulte in to array 
     $outp = "[";
@@ -19,9 +23,8 @@
 	{
 		if ($outp != "[") {$outp .= ",";}
         $outp .= '{"NICKNAME":"'  . $row["NICKNAME"] . '",';
-        $outp .= '"PASSWORD":"'   . $row["PASSWORD"]        . '",';
-        $outp .= '"CEDULA":"'   . $row["CEDULA"]        . '",';
-        $outp .= '"ES_ADMIN":"'   . $row["ES_ADMIN"] . '"}';     
+        $outp .= '"URL":"'   . $row["url"]        . '",';
+        $outp .= '"DESCRIPCION":"'   . $row["DESCRIPCION"]        . '"}';
        // $rows[] = $row;
 	}
     //endwhile;
@@ -34,5 +37,4 @@ $result->close();
 /* close connection */
 $mysqli->close();
        
-
-       ?>
+?>

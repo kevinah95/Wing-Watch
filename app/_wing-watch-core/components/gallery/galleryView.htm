@@ -1,86 +1,54 @@
-  <!-- Color Bars (above header)-->
-	<div class="color-bar-1"></div>
-    <div class="color-bar-2 color-bg"></div>
-    
-    <div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
-    <div class="ui grid"><!-- Begin Header -->
-    <!-- Logo-->
-    <div class="one wide column"></div>
-      <div class="six wide column logo">
-        <a href="index.htm"><img src="assets/img/Wing-Watch-small.png" alt="" /></a>
-            <h5>Just at the Right Moment...</h5>
-      </div>
+<div class="encima">
+  <div class="ui circular icon button" ng-click="goHome()">
+    <i class="big home icon"></i>
+  </div>
+</div>
+<!-- Color Bars (above header)-->
+<div class="color-bar-1"></div>
+<div class="color-bar-2 color-bg"></div>
+
+<div class="container" ng-controller="galleryCtrl"  style="padding-left: 2%" >
+  <div class="ui grid"><!-- Begin Header -->
+  <!-- Logo-->
+  <div class="one wide column"></div>
+  <div class="six wide column logo">
+    <a href="index.htm"><img src="assets/img/Wing-Watch-small.png" alt="" /></a>
+    <h5>Just at the Right Moment...</h5>
+  </div>
+</div>
+<div class="ui grid">
+  <!-- Slider Carousel-->
+  <div class="eight wide column">
+    <div class="flexslider custom">
+      <ul class="slides " >
+        <li ng-repeat="BirdSlide in slideBirds"><a><img ng-src="{{BirdSlide.slideFoto}}" alt="slider" /></a></li>
+      </ul>
     </div>
-
-    <div class="ui grid">
-
-     	<!-- Slider Carousel-->
-      <div class="eight wide column">
-          <div class="flexslider">
-            <ul class="slides">
-              <li><a ng-href="#/sbird"><img src="http://picszu.com/wp-content/uploads/2013/11/Big-Eagle-HD-Wallpaper-of-birds.jpg" alt="slider" /></a></li>
-              <li><a ng-href="#/sbird"><img src="http://mendobrew.com/blog/wp-content/uploads/2013/04/Peregrine-falcon-talons.jpg" /></a></li>
-              <li><a ng-href="#/sbird"><img src="http://www.fotonaturaleza.cl/data/media/1/567E2018-3.jpg" alt="slider" /></a></li>
-            </ul>
-          </div>
-      </div>
-      
-      <!-- Headline Text -->
-      <div class="eight wide column">
-      	<h2>Bienvenido a la galería de aves</h2>
-          <h4 class="lead">En esta sección, usted podrá encontrar las aves fotografiadas por los aficionados</h4>
-          <h5>Si usted es un ornitólogo puede contribuir con las capturas de los aficionados clasificando las aves avistadas.</h5> 
-      </div>
-    </div> <!-- End Headline -->
-
-    <div class="ui grid" ng-init="inicializar()">
-      <div class="four wide column">
-        <div class="ui card">
+  </div>
+  
+  <!-- Headline Text -->
+  <div class="eight wide column">
+    <h2>Bienvenido a la galería de aves</h2>
+    <h4 class="lead">En esta sección, usted podrá encontrar las aves fotografiadas por los aficionados</h4>
+    <h5>Si usted es un ornitólogo puede contribuir con las capturas de los aficionados clasificando las aves avistadas.</h5>
+  </div>
+  </div> <!-- End Headline -->
+  <div class="ui segment">
+      <div class="ui six special cards">
+        <div class="ui card" ng-repeat="post in posts" ng-click="sessionBird(post)">
           <a ng-href="#/sbird" class="image">
-            <img src="http://s3.amazonaws.com/readers/scienceray/2008/07/27/238861_14.jpg">
+            <img ng-src="{{post.URL}}">
           </a>
-        <div class="content">
-          <a class="header">{{posts[0].NICKNAME}}</a>
-          <div class="meta">
-            <span class="date">Joined in 2014</span>
+          <div class="content">
+            <a class="header">{{post.DESCRIPCION}}</a>
+            <div class="meta">
+              <span class="date">{{post.NICKNAME}}</span>
+            </div>
           </div>
-          <div class="description">
-            Aquí va la descripción del ave
-          </div>
-        </div>
           <div class="extra content">
             <a> <i class="checkmark box icon"></i> Checkeado </a>
           </div>
         </div>
       </div>
-    </div>   
-
-    </div> <!-- End Container -->
-
-    <!-- Footer Area
-        ================================================== -->
-    <div class="footer-container"><!-- Begin Footer -->
-        <div class="container">
-            <div class="row footer-row">
-                <div class="span3 footer-col">
-                    <ul class="social-icons">
-                        <li><a href="#" class="social-icon facebook"></a></li>
-                        <li><a href="#" class="social-icon twitter"></a></li>
-                        <li><a href="#" class="social-icon dribble"></a></li>
-                        <li><a href="#" class="social-icon rss"></a></li>
-                        <li><a href="#" class="social-icon forrst"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row"><!-- Begin Sub Footer -->
-                <div class="span12 footer-col footer-sub">
-                    <div class="row no-margin">
-                        <div class="span6"><span class="left"></span></div>
-                    </div>
-                </div>
-            </div><!-- End Sub Footer -->
-
-        </div>
-    </div><!-- End Footer --> 
-    
+  </div>
+</div> <!-- End Container -->

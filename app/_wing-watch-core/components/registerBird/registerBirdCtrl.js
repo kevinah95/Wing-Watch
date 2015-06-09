@@ -35,19 +35,27 @@ app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($sc
     angular.element(document.querySelector('#file')).on('change', handleFileSelect);
 
     $scope.abrir = function() {
+        $scope.myImage = '';
+    $scope.myCroppedImage = '';
         $('.small.test.modal')
             .modal({
                 onDeny: function() {
                     // window.alert('Wait not yet!');
-                },
-                onApprove: function() {
-                    $scope.photoAlbum.unshift($scope.myCroppedImage);
-                    $scope.$apply();
                 }
+                // },
+                // onApprove: function() {
+                //     console.log($scope.myCroppedImage)
+                //     $scope.photoAlbum.unshift($scope.myCroppedImage);
+                //     console.log($scope.photoAlbum[0])
+                //     $scope.$apply();
+                // }
             })
             .modal('show');
     };
 
+    $scope.guardarCambioFoto = function(){
+        $scope.photoAlbum.push($scope.myCroppedImage);
+    }
     $scope.subtractEgg = function() {
         if($scope.eggAmount != 0) {
             $scope.eggAmount -= 1;
@@ -112,8 +120,9 @@ app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($sc
         allFields.zona = $scope.zonaSeleccionado;
         allFields.colorA = $scope.colorSeleccionado;
         allFields.imagenes = $scope.photoAlbum;
-        allFields.cedula = JSON.parse(sessionStorage.user.Cedula);
-        allFields.Id_Usuario = JSON.parse(sessionStorage.user.Id_Usuario);
+        var withParse = JSON.parse(sessionStorage.user);
+        allFields.cedula = withParse.Cedula;
+        allFields.Id_Usuario = withParse.Id_Usuario;
         console.log(allFields);
         $http.post('_wing-watch-core/components/registerBird/php/registrarAve.php', allFields).success(function(message) {
         console.log(message);
@@ -121,7 +130,7 @@ app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($sc
         $scope.insertarImagenes();})
     }
     $scope.insertarImagenes = function(){
-        for (i = 0; i < $scope.photoAlbum.length; i++) { 
+        for (var i = 0; i < $scope.photoAlbum.length; i++) { 
             console.log(i);
             $scope.imgInsert.URL = $scope.photoAlbum[i];
             $scope.imgInsert.NOMBRE = 'NOMBRE_FOTO';
@@ -131,26 +140,8 @@ app.controller('registerBirdCtrl', ['$scope', '$http', '$location', function($sc
         }
     }
 
-    $scope.servi = function(data,value) {
-        if($scope.estaApretado) {
-            console.log(data);
-        }
-        else {
-            console.log("Ya no esta apretado");
-        }
-        console.log($scope.picos[value]);
-    }
-
     $scope.goHome = function() {
         $location.path('/home');
-    }
-
-    $scope.activar = function() {
-        $scope.estaApretado = true;
-    }
-
-    $scope.desActivar = function() {
-        $scope.estaApretado = false;
     }
 }]);
 

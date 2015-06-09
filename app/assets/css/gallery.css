@@ -5,6 +5,18 @@ html, body {
  }
 body {background: #f9f9f9 url(../img/page-bg-1.jpg);}
 
+.encima {
+	position: absolute;
+	left: 10px;
+	top: 15px;
+}
+
+.flexslider.custom {
+	width: 250px;
+	height: 250px;
+	left: 30%;
+}
+
 .main-container {
 	height:auto; 
 	height: 100%;

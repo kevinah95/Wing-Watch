@@ -1,6 +1,4 @@
-app.controller('galleryCtrl', function($scope, $http) {
-    //Carga los datos de la base. 
-    $scope.posts = {};
+app.controller('galleryCtrl', function($scope, $http, $location) {
 
     $(window).load(function(){
         $('.flexslider').flexslider({
@@ -12,6 +10,14 @@ app.controller('galleryCtrl', function($scope, $http) {
         });  
     });
 
-    
+    $scope.sessionBird = function(data) {
+        sessionStorage.setItem("Bird" , true);
+        console.log(data);
+    }
+
+    $scope.goHome = function() {
+        $location.path('/home');
+    }
+    $http.get('_wing-watch-core/components/gallery/loadSlideBirds.php').success(function(data) { $scope.slideBirds = data; });
     $http.get('_wing-watch-core/components/gallery/loadBirds.php').success(function(data) { $scope.posts = data; });
 });
