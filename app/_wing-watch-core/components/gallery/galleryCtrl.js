@@ -11,7 +11,7 @@ app.controller('galleryCtrl', function($scope, $http, $location) {
     });
 
     $scope.sessionBird = function(data) {
-        sessionStorage.setItem("Bird" , true);
+        sessionStorage.setItem("Bird" , JSON.stringify(data));
         console.log(data);
     }
 
