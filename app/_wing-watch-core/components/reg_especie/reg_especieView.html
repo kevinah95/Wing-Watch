@@ -1,6 +1,6 @@
 <div class="ui two column centered grid" ng-init="cargarEspecies()">
     <div class="column">
-        <form class="ui form segment">
+        <form class="ui form especie segment">
             <h3>Agregar nueva especie</h3>
             <div class="ui blue segment" ng-class="{disabled: dis_especie}" ng-init="dis_especie = false">
                 <div class="two fields">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ui blue button">Submit</div>
+            <div class="ui blue button" ng-click="insertarEspecie()">Registrar Nueva Especie</div>
         </form>
     </div>
 </div>

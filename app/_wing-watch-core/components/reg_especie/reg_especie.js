@@ -1,10 +1,5 @@
 app.controller('reg_especieCtrl', function($scope, $http) {
-    $scope.category_model = 'Categoria';
     $scope.especie = '';
-    $scope.catetories = [{
-        title: 'dasdas',
-        value: '123123'
-    }];
     $scope.deshabilitar = function(deshabilitador, habilitador, isVacio) {
         if (isVacio.length != 0) {
             $scope[deshabilitador] = true;
@@ -26,8 +21,10 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             if (index === -1) {
 				$scope.cargarTodoGeneros();
             } else {
-                $scope.FK_GENERO = $scope.catalogoEspecies[index].FK_GENERO;
-                $scope.cargarGenero();
+                swal({   title: "Datos duplicados",   text: "La especie ya se encuentra en el sistema",    showConfirmButton: false });
+                setInterval(function () {history.go(0); }, 2000);
+                // $scope.FK_GENERO = $scope.catalogoEspecies[index].FK_GENERO;
+                // $scope.cargarGenero();
             }
 
         };
@@ -49,7 +46,9 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             var index = $scope.catalogoGenero.map(function(d) {
                 return d['GENERO'];
             }).indexOf($scope.genero);
-            console.log(index);
+            
+            $scope.genero = $scope.catalogoGenero[index];
+            // console.log($scope.genero);
             $scope.FK_FAMILIA = $scope.catalogoGenero[index].FK_FAMILIA;
             $scope.cargarFamilia();
         };
@@ -65,6 +64,9 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             var index = $scope.catalogoFamilia.map(function(d) {
                 return d['FAMILIA'];
             }).indexOf($scope.familia);
+
+            $scope.familia = $scope.catalogoFamilia[index];
+            // console.log($scope.familia);
             $scope.FK_SUBORDEN = $scope.catalogoFamilia[index].FK_SUBORDEN;
             $scope.cargarSuborden();
         };
@@ -80,6 +82,9 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             var index = $scope.catalogoSuborden.map(function(d) {
                 return d['SUBORDEN'];
             }).indexOf($scope.suborden);
+
+            $scope.suborden = $scope.catalogoSuborden[index];
+            // console.log($scope.suborden);
             $scope.FK_ORDEN = $scope.catalogoSuborden[index].FK_ORDEN;
             $scope.cargarOrden();
         };
@@ -92,8 +97,10 @@ app.controller('reg_especieCtrl', function($scope, $http) {
     };
     $scope.continuarOrden = function() {
         if ($scope.orden.length != 0) {
-            // var index = $scope.catalogoOrden.map(function(d) { return d['ORDEN']; }).indexOf($scope.orden);
+            var index = $scope.catalogoOrden.map(function(d) { return d['ORDEN']; }).indexOf($scope.orden);
             // $scope.FK_ORDEN = $scope.catalogoSuborden[index].FK_ORDEN;
+            $scope.orden = $scope.catalogoOrden[index];
+            // console.log($scope.orden);
             $scope.cargarPico();
         };
     };
@@ -127,5 +134,15 @@ app.controller('reg_especieCtrl', function($scope, $http) {
             $scope.catalogoZona = msg.data;
             // console.log($scope.catalogoOrden);
         });
+    };
+    $scope.insertarEspecie = function(){
+        var $form = $('.form.especie'),
+            allFields = $form.form('get values');
+        allFields.genero = $scope.genero;
+        allFields.familia = $scope.familia;
+        allFields.orden = $scope.orden;
+        allFields.suborden = $scope.suborden;
+        console.log(allFields);
+
     };
 });
